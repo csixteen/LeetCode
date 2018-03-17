@@ -24,7 +24,7 @@ class SolutionTest(unittest.TestCase):
         target1 = 9
         target2 = 68
         target3 = 55
-        
+
         self.assertEqual(Solution().two_sum(nums1, target1), [0, 1])
         self.assertEqual(Solution().two_sum(nums2, target2), [3, 4])
         self.assertEqual(Solution().two_sum(nums3, target3), [1, 6])
