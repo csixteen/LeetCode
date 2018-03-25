@@ -48,13 +48,13 @@ class Solution(object):
 
             if j < l - 1 and s[i] == s[j+1]:
                 j += 1
-            offset = min(i - 0, l - j - 1)
-            res = self._longest_pal(
-                s, i - offset, j + offset, i, j, len(longest)
-            )
+                offset = min(i - 0, l - j - 1)
+                res = self._longest_pal(
+                    s, i - offset, j + offset, i, j, len(longest)
+                )
 
-            if res is not None:
-                longest = res
+                if res is not None:
+                    longest = res
 
         return longest
 
@@ -62,13 +62,13 @@ class Solution(object):
 class TestSolution(unittest.TestCase):
     def test_longestPalindrome(self):
         s = Solution()
-        #self.assertEqual(s.longestPalindrome('babad'), 'bab')
-        #self.assertEqual(s.longestPalindrome('cbbd'), 'bb')
-        #self.assertEqual(s.longestPalindrome('bbbbbb'), 'bbbbbb')
-        #self.assertEqual(s.longestPalindrome('abcdefedbbbb'), 'defed')
-        #self.assertEqual(s.longestPalindrome(''), '')
-        #self.assertEqual(s.longestPalindrome('c'), 'c')
-        #self.assertEqual(s.longestPalindrome('abcdef'), 'a')
+        self.assertEqual(s.longestPalindrome('babad'), 'bab')
+        self.assertEqual(s.longestPalindrome('cbbd'), 'bb')
+        self.assertEqual(s.longestPalindrome('bbbbbb'), 'bbbbbb')
+        self.assertEqual(s.longestPalindrome('abcdefedbbbb'), 'defed')
+        self.assertEqual(s.longestPalindrome(''), '')
+        self.assertEqual(s.longestPalindrome('c'), 'c')
+        self.assertEqual(s.longestPalindrome('abcdef'), 'a')
         self.assertEqual(s.longestPalindrome('ccc'), 'ccc')
 
 
