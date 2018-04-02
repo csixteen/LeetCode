@@ -4,7 +4,7 @@ import unittest
 
 
 class Solution(object):
-    def maxSubArray2(self, nums):
+    def maxSubArray(self, nums):
         """
         :type nums: list[int]
         :rtype: int
@@ -16,7 +16,7 @@ class Solution(object):
             _global = max(_global, _local)
         return _global
 
-    def maxSubArray(self, nums):
+    def maxSubArray2(self, nums):
         """
         :type nums: list[int]
         :rtype: int
