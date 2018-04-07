@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 # coding: utf-8
-import unittest
-
-
 class TreeNode(object):
     def __init__(self, x, l=None, r=None):
         self.val = x
@@ -28,8 +25,4 @@ class Solution(object):
         t.left = self.sortedArrayToBST(nums[:middle])
         t.right = self.sortedArrayToBST(nums[middle+1:])
         return t
-
-
-if __name__ == '__main__':
-    unittest.main()
 
