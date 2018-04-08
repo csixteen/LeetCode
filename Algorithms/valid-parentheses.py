@@ -29,13 +29,17 @@ class Solution(object):
 class TestSolution(unittest.TestCase):
     def test_isValid(self):
         s = Solution()
+        self.assertFalse(s.isValid('}][}}(}][))]'))
         self.assertFalse(s.isValid('['))
+        self.assertTrue(s.isValid('{}[]()'))
+        self.assertFalse(s.isValid('{[}]}'))
         self.assertFalse(s.isValid('(('))
         self.assertTrue(s.isValid('()'))
         self.assertTrue(s.isValid('()[]{}'))
         self.assertFalse(s.isValid('(]'))
         self.assertFalse(s.isValid('([)]'))
         self.assertTrue(s.isValid('(()((())))'))
+        self.assertTrue(s.isValid('({})'))
 
 
 if __name__ == '__main__':
