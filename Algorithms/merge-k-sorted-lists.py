@@ -44,10 +44,8 @@ class Solution(object):
             return self.mergeTwoLists(*lists)
 
         mid = len(lists) // 2
-        left = lists[:mid]
-        right = lists[mid:]
-        left = self.mergeKLists(left)
-        right = self.mergeKLists(right)
+        left = self.mergeKLists(lists[:mid])
+        right = self.mergeKLists(lists[mid:])
 
         return self.mergeTwoLists(left, right)
 
