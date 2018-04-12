@@ -3,40 +3,10 @@
 # https://leetcode.com/problems/merge-two-sorted-lists
 import unittest
 
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
-def print_list(l):
-    print_list_recursive(l, ' -> ')
-
-
-def print_list_recursive(l, s):
-    if l is not None:
-        print(l.val, end='')
-        print(s, end='')
-        print_list_recursive(l.next, s)
-    else:
-        print()
-
-
-def create_list(l):
-    """
-    :type l: list
-    :rtype: ListNode
-    """
-    if len(l) == 0:
-        return None
-
-    head = ListNode(l[0])
-    ret = head
-    for e in l[1:]:
-        head.next = ListNode(e)
-        head = head.next
-    return ret
+from lists import (
+    ListNode,
+    to_linked_list
+)
 
 
 class Solution(object):
@@ -79,36 +49,25 @@ class TestSolution(unittest.TestCase):
             c += 1
         self.assertEqual(c, size)
 
-    def test_create_list(self):
-        raw = [1, 2, 3, 4, 5]
-        l = create_list(raw)
-        for e in raw:
-            self.assertEqual(e, l.val)
-            l = l.next
-
-        raw = []
-        l = create_list(raw)
-        self.assertIsNone(l)
-
     def test_mergeTwoLists(self):
         s = Solution()
-        l1 = create_list([1, 2, 4])
-        l2 = create_list([1, 3, 4])
+        l1 = to_linked_list([1, 2, 4])
+        l2 = to_linked_list([1, 3, 4])
         l3 = s.mergeTwoLists(l1, l2)
         self._validate_list(l3, 6)
 
-        l1 = create_list([])
-        l2 = create_list([1, 2, 3])
+        l1 = to_linked_list([])
+        l2 = to_linked_list([1, 2, 3])
         l3 = s.mergeTwoLists(l1, l2)
         self._validate_list(l3, 3)
 
-        l1 = create_list([])
-        l2 = create_list([])
+        l1 = to_linked_list([])
+        l2 = to_linked_list([])
         l3 = s.mergeTwoLists(l1, l2)
         self._validate_list(l3, 0)
 
-        l1 = create_list([-1, 0, 1])
-        l2 = create_list([-1, 0, 1])
+        l1 = to_linked_list([-1, 0, 1])
+        l2 = to_linked_list([-1, 0, 1])
         l3 = s.mergeTwoLists(l1, l2)
         self._validate_list(l3, 6)
 
