@@ -33,12 +33,12 @@ class Solution(object):
 class TestSolution(unittest.TestCase):
     def test_romanToInt(self):
         s = Solution()
-        self.assertEquals(s.romanToInt('IX'), 9)
-        self.assertEquals(s.romanToInt('MCDXCIX'), 1499)
-        self.assertEquals(s.romanToInt('III'), 3)
-        self.assertEquals(s.romanToInt('XIX'), 19)
-        self.assertEquals(s.romanToInt('MIII'), 1003)
-        self.assertEquals(s.romanToInt('MDCCCLXXXIV'), 1884)
+        self.assertEqual(s.romanToInt('IX'), 9)
+        self.assertEqual(s.romanToInt('MCDXCIX'), 1499)
+        self.assertEqual(s.romanToInt('III'), 3)
+        self.assertEqual(s.romanToInt('XIX'), 19)
+        self.assertEqual(s.romanToInt('MIII'), 1003)
+        self.assertEqual(s.romanToInt('MDCCCLXXXIV'), 1884)
 
 
 if __name__ == '__main__':
