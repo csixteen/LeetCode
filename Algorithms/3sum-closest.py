@@ -5,6 +5,21 @@ import unittest
 
 
 class Solution(object):
+    def _trim(self, nums):
+        ret = []
+        count = 0
+        current = None
+        for i in nums:
+            if i == current and count >= 3:
+                continue
+            elif i == current and count < 3:
+                count += 1
+            elif i != current:
+                current = i
+                count = 1
+            ret.append(i)
+        return ret
+
     def _threeSumClosest(self, nums, target):
         """
         :type nums: list[int]
@@ -24,8 +39,7 @@ class Solution(object):
                 elif s > target:
                     right -= 1
                 else:
-                    left += 1
-                    right -= 1
+                    return target
 
         return m
 
@@ -40,7 +54,7 @@ class Solution(object):
                 (nums[-1] < 0 and target >= 0):
             return sum(nums[-3:])
         else:
-            return self._threeSumClosest(nums, target)
+            return self._threeSumClosest(self._trim(nums), target)
 
 
 class TestSolution(unittest.TestCase):
