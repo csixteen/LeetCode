@@ -40,6 +40,10 @@ class Solution(object):
             return []
 
         nums.sort()
+        if (nums[0] > 0 and target <= 0) or \
+                (nums[-1] < 0 and target >= 0):
+            return []
+
         ret = []
         visited = set()
         for i in range(len(nums)-3):
