@@ -16,6 +16,10 @@ class MinStack(object):
         self.__data = deque()
 
     def push(self, x):
+        """
+        :type x: int
+        :rtype: void
+        """
         elem = MinStackElement(x)
         if len(self.__data) == 0:
             elem.min = x
@@ -24,14 +28,23 @@ class MinStack(object):
         self.__data.append(elem)
 
     def pop(self):
+        """
+        :rtype: void
+        """
         if len(self.__data) > 0:
             self.__data.pop()
 
     def top(self):
+        """
+        :rtype: int
+        """
         if len(self.__data) > 0:
             return self.__data[-1].val
 
     def getMin(self):
+        """
+        :rtype: int
+        """
         if len(self.__data) > 0:
             return self.__data[-1].min
 
