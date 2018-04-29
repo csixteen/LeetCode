@@ -40,10 +40,10 @@ def print_list(l):
     """
     :type l: ListNode
     """
-    print_list_recursive(l, ' -> ')
+    _print_list_recursive(l, ' -> ')
 
 
-def print_list_recursive(l, s):
+def _print_list_recursive(l, s):
     """
     :type l: ListNode
     :type s: str
@@ -51,7 +51,7 @@ def print_list_recursive(l, s):
     if l:
         print(l.val, end='')
         print(s, end='')
-        print_list_recursive(l.next, s)
+        _print_list_recursive(l.next, s)
     else:
         print()
 
