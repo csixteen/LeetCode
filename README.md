@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/csixteen/LeetCode.svg?branch=master)](https://travis-ci.org/csixteen/LeetCode)
 
 ```
- _
+ _               _   _____           _
 | |             | | /  __ \         | |     
 | |     ___  ___| |_| /  \/ ___   __| | ___ 
 | |    / _ \/ _ \ __| |    / _ \ / _` |/ _ \
