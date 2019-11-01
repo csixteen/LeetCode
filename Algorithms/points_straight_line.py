@@ -24,7 +24,7 @@ class Solution:
                     continue
 
                 g = gcd(dx, dy)
-                s = '{}/{}'.format(dy // g, dx // g)
+                s = (dy // g, dx // g)
                 slopes[s] += 1
                 line = max(line, slopes[s])
 
@@ -36,9 +36,9 @@ class Solution:
 class TestSolution(unittest.TestCase):
     def setUp(self):
         self.test_cases = [
-            #([], 0),
-            #([[0, 0]], 1),
-            #([[0, 0], [0, 0]], 1), 
+            ([], 0),
+            ([[0, 0]], 1),
+            ([[0, 0], [0, 0]], 2), 
             ([[1,1],[2,2],[3,3]], 3),
             ([[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]], 4)
         ]
