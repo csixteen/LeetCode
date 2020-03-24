@@ -12,78 +12,78 @@ class ListItem:
         self._prev = None
         self._next = None
 
+    def __repr__(self) -> str:
+        return f"({self.key}, {self.value})"
+
 
 class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
+        self.size = 0
         self.cache: Dict[int, ListItem] = {}
         self.head = None
         self.tail = None
 
-    def _discard_item(self, item: ListItem):
-        if self.tail is not None and self.tail.key == item.key:
-            self.tail = item._next
-
-        if self.head is not None and self.head.key == item.key:
-            self.head = item._prev
-
-        if item._prev is not None:
-            item._prev._next = item._next
-
-        if item._next is not None:
-            item._next._prev = item._prev
-
-    def get(self, key: int) -> int:
-        if key not in self.cache:
-            return -1
-
-        # We're in the head, no need to do anything else
-        if self.head.key == key:
-            return self.head.value
-
-        curr = self.cache[key]
-        ret = curr.value
-
-        # We're in the tail
-        if self.tail.key == key:
-            self.tail = self.tail._next
-            self.tail._prev = None
-
-        if curr._prev is not None:
-            curr._prev._next, curr._next._prev = curr._next, curr._prev
-
-        curr._prev = self.head
-        curr._next = None
-        self.head._next = curr
-        self.head = curr
-
-        return ret
-
-    def put(self, key: int, value: int):
-        if key in self.cache:
-            self._discard_item(self.cache[key])
-            del self.cache[key]
-            self.capacity += 1
-
-        item = ListItem(key, value)
-        self.cache[key] = item
-
+    def _add_item(self, item: ListItem):
+        """ We always add the item to the head of the list """
+        item._prev = self.head
         if self.head is not None:
             self.head._next = item
-        item._prev = self.head
         self.head = item
 
         if self.tail is None:
             self.tail = item
 
-        if self.capacity == 0:
-            key_to_delete = self.tail.key
-            self.tail = self.tail._next
-            self.tail._prev = None
-
-            del self.cache[key_to_delete]
+    def _delete_item(self, item: ListItem):
+        if item._prev is None:
+            # item is tail
+            self.tail = item._next
         else:
-            self.capacity -= 1
+            item._prev._next = item._next
+
+        if item._next is None:
+            # item is head
+            self.head = item._prev
+        else:
+            item._next._prev = item._prev
+
+    def _move_to_head(self, item: ListItem):
+        self._delete_item(item)
+        self._add_item(item)
+
+    def _pop_tail(self) -> ListItem:
+        curr = self.tail
+        self._delete_item(curr)
+
+        return curr
+
+    def get(self, key: int) -> int:
+        item = self.cache.get(key, None)
+
+        if item is None:
+            return -1
+
+        self._move_to_head(item)
+
+        return item.value
+
+    def put(self, key: int, value: int):
+        item = self.cache.get(key, None)
+
+        if item is None:
+            item = ListItem(key, value)
+
+            self.cache[key] = item
+            self._add_item(item)
+            self.size += 1
+
+            if self.size > self.capacity:
+                tail = self._pop_tail()
+                del self.cache[tail.key]
+                self.size -= 1
+        else:
+            item.value = value
+            self._move_to_head(item)
 
 
 class TestLRUCache(unittest.TestCase):
@@ -133,7 +133,6 @@ class TestLRUCache(unittest.TestCase):
 
         self.assertEqual(-1, lru.get(1))
         self.assertEqual(3, lru.get(2))
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
