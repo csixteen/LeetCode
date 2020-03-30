@@ -2,7 +2,6 @@
 # coding: utf-8
 # https://leetcode.com/problems/first-unique-character-in-a-string/
 
-from array import array
 from collections import Counter
 import unittest
 
