@@ -6,7 +6,7 @@ impl Solution {
             return 0;
         }
         
-        let mut n = n as usize;
+        let n = n as usize;
         let mut primes = vec![true; n];
 
         primes[0] = false;
