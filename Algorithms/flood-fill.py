@@ -7,23 +7,21 @@ import unittest
 
 
 class Solution:
-    def paint(self, img: List[List[int]], i: int, j: int, ic: int, newColor: int, v: set):
-        if i < 0 or j < 0 or i >= len(img) or j >= len(img[0]) or (i, j) in v or img[i][j] != ic:
+    def paint(self, img: List[List[int]], i: int, j: int, ic: int, newColor: int):
+        if i < 0 or j < 0 or i >= len(img) or j >= len(img[0]) or img[i][j] != ic:
             return
 
         img[i][j] = newColor
-        v.add((i, j))
-
-        self.paint(img, i-1, j, ic, newColor, v)
-        self.paint(img, i+1, j, ic, newColor, v)
-        self.paint(img, i, j-1, ic, newColor, v)
-        self.paint(img, i, j+1, ic, newColor, v)
+        self.paint(img, i-1, j, ic, newColor)
+        self.paint(img, i+1, j, ic, newColor)
+        self.paint(img, i, j-1, ic, newColor)
+        self.paint(img, i, j+1, ic, newColor)
 
     def floodFill(
         self, image: List[List[int]], sr: int, sc: int, newColor: int
     ) -> List[List[int]]:
-        visited = set()
-        self.paint(image, sr, sc, image[sr][sc], newColor, visited)
+        if image[sr][sc] != newColor:
+            self.paint(image, sr, sc, image[sr][sc], newColor)
 
         return image
 
