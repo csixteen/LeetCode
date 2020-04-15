@@ -9,13 +9,14 @@ import unittest
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        left = [1] * len(nums)
-        right = [1] * len(nums)
+        l = len(nums)
 
-        for i in range(1, len(nums)):
+        left, right = [1] * l, [1] * l
+
+        for i in range(1, l):
             left[i] = left[i-1] * nums[i-1]
 
-        for i in reversed(range(len(nums) - 1)):
+        for i in reversed(range(l - 1)):
             right[i] = right[i+1] * nums[i+1]
 
         return list(starmap(int.__mul__, zip(left, right)))
