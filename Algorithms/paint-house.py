@@ -2,8 +2,7 @@
 # coding: utf-8
 # https://leetcode.com/problems/paint-house/
 
-from itertools import islice
-from typing import List, Tuple
+from typing import List
 import unittest
 
 
