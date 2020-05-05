@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/jewels-and-stones/
+
 use std::collections::HashSet;
 use std::iter::FromIterator;
 
