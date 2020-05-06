@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/count-primes/
 
+struct Solution {}
+
 impl Solution {
     pub fn count_primes(n: i32) -> i32 {
         if n < 2 {

@@ -53,10 +53,6 @@ mod tests {
                 case.expected,
                 Solution::majority_element(case.nums.clone()),
             );
-            assert_eq!(
-                case.expected,
-                Solution::majority_element2(case.nums.clone()),
-            );
         }
     }
 }
