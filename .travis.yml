@@ -3,7 +3,7 @@ matrix:
   - language: python
     python: 3.8
     script:
-    - cd Algorithms && for i in $(ls *.py); do python3 $i; done
+    - make python
 
   - language: rust
     rust:
