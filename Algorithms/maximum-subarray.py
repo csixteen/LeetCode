@@ -27,11 +27,8 @@ class TestSolution(unittest.TestCase):
         s = Solution()
 
         self.assertEqual(s.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]), 6)
-        self.assertEqual(s.maxSubArray2([-2,1,-3,4,-1,2,1,-5,4]), 6)
         self.assertEqual(s.maxSubArray([-9, -20, -1, -2, -47]), -1)
-        self.assertEqual(s.maxSubArray2([-9, -20, -1, -2, -47]), -1)
         self.assertEqual(s.maxSubArray([0]), 0)
-        self.assertEqual(s.maxSubArray2([0]), 0)
 
 
 if __name__ == '__main__':

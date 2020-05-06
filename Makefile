@@ -1,17 +1,41 @@
-.PHONY : rust
+.PHONY : all
+
+all: rust python
 
 SRC := Algorithms/
 
-define test_fun
+
+#---------------------------------------------------------------------
+# Testing Rust code
+
+
+define test_rust
 	@cd $* &&     \
 	cargo test && \
 	cd ..;
 endef
 
 DIRS := $(shell find ./Algorithms/ -mindepth 1 -maxdepth 1 -type d)
-JOBS := $(addprefix job,${DIRS})
+RUST_JOBS := $(addprefix rjob,${DIRS})
 
-rust: ${JOBS} ; @echo "[$@] finished!"
+.PHONY : rust
 
-${JOBS}: job%:
-	$(test_fun)
+rust: ${RUST_JOBS} ; @echo "[$@] finished!"
+
+${RUST_JOBS}: rjob%:
+	$(test_rust)
+
+
+#----------------------------------------------------------------------
+# Testing Python code
+
+
+FILES := $(shell find ./Algorithms/ -name '*.py')
+PYTHON_JOBS := $(addprefix pjob,${FILES})
+
+.PHONY : python
+
+python: ${PYTHON_JOBS} ; @echo "[$@] finished!"
+
+${PYTHON_JOBS}: pjob%:
+	@python3 $*

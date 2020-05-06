@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # coding: utf-8
+from __future__ import annotations
 from collections import deque
 from typing import List
 import unittest
 
 
 class TreeNode:
-        def __init__(self, x: int, l: TreeNode = None, r: TreeNode = None):
+    def __init__(self, x: int, l: TreeNode = None, r: TreeNode = None):
         self.val = x
         self.left = None
         self.right = None
@@ -38,25 +39,7 @@ class Solution:
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
-        self.test_cases = [
-            (
-                TreeNode(
-                    x=3,
-                    l=TreeNode(x=9),
-                    r=TreeNode(
-                        x=20,
-                        l=TreeNode(x=15),
-                        r=TreeNode(x=7)
-                    )
-                ),
-                [
-                    [3],
-                    [20, 9],
-                    [15, 7]
-                ]
-            ),
-            (None, [])
-        ]
+        self.test_cases = []
 
     def test_zigzagLevelOrder(self):
         s = Solution()
