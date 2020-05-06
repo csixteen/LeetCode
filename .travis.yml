@@ -1,6 +1,12 @@
-language: python
-python:
-  - 3.8
+matrix:
+  include:
+  - language: python
+    python: 3.8
 
-script:
-  - cd Algorithms && for i in $(ls *.py); do python3 $i; done
+    script:
+    - cd Algorithms && for i in $(ls *.py); do python3 $i; done
+  - language: rust
+    rust:
+    - stable
+    script:
+    - make rust
