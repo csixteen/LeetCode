@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/valid-perfect-square/
+
 use std::cmp::Ordering;
 
 struct Solution {}
