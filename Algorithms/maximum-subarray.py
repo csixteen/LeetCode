@@ -12,11 +12,11 @@ class Solution:
         :type nums: list[int]
         :rtype: int
         """
-        _global = m = max(nums)
+        _global = max(nums)
         _local = 0
 
         for i in nums:
-            _local = max(_local + i, min(m, 0))
+            _local = i + max(_local, 0)
             _global = max(_global, _local)
 
         return _global
