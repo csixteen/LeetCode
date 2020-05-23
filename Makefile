@@ -2,7 +2,7 @@
 
 all: rust python
 
-SRC := Algorithms/
+SRC := src/
 
 
 #---------------------------------------------------------------------
@@ -15,7 +15,7 @@ define test_rust
 	cd ..;
 endef
 
-DIRS := $(shell find ./Algorithms/ -mindepth 1 -maxdepth 1 -type d)
+DIRS := $(shell find ./src/Rust/ -mindepth 1 -maxdepth 1 -type d)
 RUST_JOBS := $(addprefix rjob,${DIRS})
 
 .PHONY : rust
@@ -30,7 +30,7 @@ ${RUST_JOBS}: rjob%:
 # Testing Python code
 
 
-FILES := $(shell find ./Algorithms/ -name '*.py')
+FILES := $(shell find ./src/Python/ -name '*.py')
 PYTHON_JOBS := $(addprefix pjob,${FILES})
 
 .PHONY : python
