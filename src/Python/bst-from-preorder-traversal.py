@@ -15,6 +15,12 @@ class TreeNode:
     def __repr__(self) -> str:
         return f"val: {self.val}, (left: {self.left}), (right: {self.right})"
 
+    def __eq__(self, other) -> bool:
+        if not other or self.val != other.val:
+            return False
+
+        return self.left == other.left and self.right == other.right
+
 
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
@@ -50,21 +56,11 @@ class TestSolution(unittest.TestCase):
             ),
         ]
 
-    def same_tree(self, a: TreeNode, b: TreeNode) -> bool:
-        if not a and not b:
-            return True
-        elif not a or not b:
-            return False
-        elif a.val != b.val:
-            return False
-        else:
-            return self.same_tree(a.left, b.left) and self.same_tree(a.right, b.right)
-
     def test_bstFromPreorder(self):
         s = Solution()
 
         for _input, expected in self.input_expected:
-            self.assertTrue(self.same_tree(expected, s.bstFromPreorder(**_input)))
+            self.assertEqual(expected, s.bstFromPreorder(**_input))
 
 
 if __name__ == "__main__":
