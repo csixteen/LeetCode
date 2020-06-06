@@ -13,8 +13,6 @@ impl Solution {
             a[HEIGHT].cmp(&b[HEIGHT]).then(a[AHEAD].cmp(&b[AHEAD]).reverse())
         });
 
-        println!("{:?}", people);
-
         for person in people.iter().rev() {
             ret.insert(person[AHEAD] as usize, person.to_vec());
         }
