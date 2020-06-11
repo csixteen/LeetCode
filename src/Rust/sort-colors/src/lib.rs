@@ -30,19 +30,19 @@ impl Solution {
 
     pub fn sort_colors_one_pass(nums: &mut Vec<i32>) {
         // Also known as the Dutch flag algorithm
-        let mut left: i32 = 0;
-        let mut middle: i32 = 0;
+        let mut left: usize = 0;
+        let mut middle: usize = 0;
         let mut right: i32 = nums.len() as i32 - 1;
 
-        while middle <= right {
-            match nums[middle as usize] {
+        while middle as i32 <= right {
+            match nums[middle] {
                 COLOR_A => {
-                    &nums.swap(left as usize, middle as usize);
+                    &nums.swap(left, middle);
                     left += 1;
                     middle += 1;
                 },
                 COLOR_C => {
-                    &nums.swap(middle as usize, right as usize);
+                    &nums.swap(middle, right as usize);
                     right -= 1;
                 }
                 _ => { middle += 1 },
