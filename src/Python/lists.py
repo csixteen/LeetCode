@@ -4,9 +4,18 @@ import unittest
 
 
 class ListNode(object):
-    def __init__(self, v):
+    def __init__(self, v, next_=None):
         self.val = v
-        self.next = None
+        self.next = next_
+
+    def __str__(self):
+        return f'{self.val} ({self.next})'
+
+    def __eq__(self, other):
+        if not other:
+            return False
+
+        return (self.val == other.val) and (self.next == other.next)
 
 
 def to_linked_list(l):
