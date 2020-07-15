@@ -30,10 +30,10 @@ impl Solution {
             (None, h @ Some(_)) => h,
             (Some(mut a), Some(mut b)) => {
                 if a.val < b.val {
-                    a.next = Self::merge_two_lists(a.next, Some(b));
+                    a.next = Self::merge_two_lists2(a.next, Some(b));
                     return Some(a)
                 } else {
-                    b.next = Self::merge_two_lists(Some(a), b.next);
+                    b.next = Self::merge_two_lists2(Some(a), b.next);
                     return Some(b)
                 }
             },
@@ -97,6 +97,44 @@ mod tests {
                 })),
             })),
             Solution::merge_two_lists(
+                Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 2,
+                        next: Some(Box::new(ListNode::new(4))),
+                    })),
+                })),
+                Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 3,
+                        next: Some(Box::new(ListNode::new(4))),
+                    })),
+                })),
+            ),
+        );
+    }
+
+    #[test]
+    fn test_example1_recursive() {
+        assert_eq!(
+            Some(Box::new(ListNode {
+                val: 1,
+                next: Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 2,
+                        next: Some(Box::new(ListNode {
+                            val: 3,
+                            next: Some(Box::new(ListNode {
+                                val: 4,
+                                next: Some(Box::new(ListNode::new(4))),
+                            })),
+                        })),
+                    })),
+                })),
+            })),
+            Solution::merge_two_lists2(
                 Some(Box::new(ListNode {
                     val: 1,
                     next: Some(Box::new(ListNode {
