@@ -3,32 +3,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef enum { FALSE, TRUE } bool;
-
-typedef struct _ListNode {
+struct ListNode {
     int val;
-    struct _ListNode *next;
-} ListNode;
+    struct ListNode *next;
+};
 
-bool has_cycle(ListNode *head) {
-    ListNode *slow = head;
-    ListNode *fast = NULL;
+int has_cycle(struct ListNode *head) {
+    if (!head) { return 0; }
+
+    struct ListNode *slow = head;
+    struct ListNode *fast = head;
     
-    if (head && head->next) {
-        fast = head->next;
-    }
-
-    while (slow && fast) {
-        if (slow->val == fast->val) {
-            return TRUE;
-        }
-
+    while (fast && fast->next) {
+        fast = fast->next->next;
         slow = slow->next;
-        fast = fast->next;
-        if (fast) { fast = fast->next; }
+
+        if (slow == fast) {
+            return 1;
+        }
     }
 
-    return FALSE;
+    return 0;
 }
 
 int main(int argc, char **argv) {
