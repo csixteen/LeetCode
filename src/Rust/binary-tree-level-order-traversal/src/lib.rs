@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/binary-tree-level-order-traversal/
 
+#![allow(dead_code)]
+
 use std::cell::RefCell;
 use std::rc::Rc;
 
