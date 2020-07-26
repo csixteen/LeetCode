@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/bitwise-and-of-numbers-range/
 
-struct Solution {}
+#![allow(dead_code)]
+
+struct Solution;
 
 impl Solution {
     // Brute-force solution (accepted)

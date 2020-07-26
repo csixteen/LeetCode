@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/binary-tree-maximum-path-sum/
 
+#![allow(dead_code)]
+
 use std::cmp::max;
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -11,7 +13,7 @@ pub struct TreeNode {
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-struct Solution { }
+struct Solution;
 
 impl Solution {
     pub fn max_path_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {

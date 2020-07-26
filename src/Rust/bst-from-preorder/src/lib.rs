@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 
+#![allow(dead_code)]
+
 use std::rc::Rc;
 use std::cell::RefCell;
 
@@ -25,7 +27,7 @@ impl TreeNode {
     }
 }
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     fn rec(preorder: &[i32]) -> BSTNode {
