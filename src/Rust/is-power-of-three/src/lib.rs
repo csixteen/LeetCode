@@ -14,6 +14,8 @@ impl Solution {
 
         n == 1
     }
+
+    // TODO: try other approaches, like changing base and checking for '^10*'
 }
 
 #[cfg(test)]
