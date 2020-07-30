@@ -35,16 +35,16 @@ mod tests {
 
     #[test]
     fn test_example1() {
-        assert_eq!(3, Solution::hammingWeight(7));
-        assert_eq!(3, Solution::hammingWeight2(7));
-        assert_eq!(3, Solution::hammingWeight3(7));
+        assert_eq!(3, Solution::hammingWeight(0x7));
+        assert_eq!(3, Solution::hammingWeight2(0x7));
+        assert_eq!(3, Solution::hammingWeight3(0x7));
     }
 
     #[test]
     fn test_example2() {
-        assert_eq!(1, Solution::hammingWeight(256));
-        assert_eq!(1, Solution::hammingWeight2(256));
-        assert_eq!(1, Solution::hammingWeight3(256));
+        assert_eq!(1, Solution::hammingWeight(0x100));
+        assert_eq!(1, Solution::hammingWeight2(0x100));
+        assert_eq!(1, Solution::hammingWeight3(0x100));
     }
 
     #[test]
