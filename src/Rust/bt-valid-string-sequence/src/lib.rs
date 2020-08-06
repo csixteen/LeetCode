@@ -1,5 +1,7 @@
 // https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/532/week-5/3315/
 
+#![allow(dead_code)]
+
 use std::rc::Rc;
 use std::cell::RefCell;
 
