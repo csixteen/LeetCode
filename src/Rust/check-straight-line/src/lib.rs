@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/check-if-it-is-a-straight-line/
 
+#![allow(dead_code)]
+
 struct Solution {}
 
 impl Solution {
