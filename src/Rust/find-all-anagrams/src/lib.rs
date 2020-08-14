@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/find-all-anagrams-in-a-string/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution {}
