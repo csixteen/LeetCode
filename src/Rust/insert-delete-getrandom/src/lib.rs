@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/insert-delete-getrandom-o1/
 
+#![allow(dead_code)]
+
 use rand::{thread_rng, Rng};
 
 use std::cell::RefCell;
