@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/edit-distance/
 
+#![allow(dead_code)]
+
 struct Solution {}
 
 impl Solution {
