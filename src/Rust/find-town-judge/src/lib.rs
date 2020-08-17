@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/find-the-town-judge/
 
+#![allow(dead_code)]
+
 struct Solution {}
 
 impl Solution {
