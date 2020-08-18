@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/first-unique-character-in-a-string/
 
+#![allow(dead_code)]
+
 struct Solution {}
 
 impl Solution {
