@@ -1,4 +1,7 @@
 // https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/531/week-4/3313/
+
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct FirstUnique {
