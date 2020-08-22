@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/flood-fill/
 
+#![allow(dead_code)]
+
 struct Solution {}
 
 impl Solution {
