@@ -19,7 +19,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
         if (l1) { res += l1->val; l1 = l1->next; }
         if (l2) { res += l2->val; l2 = l2->next; }
 
-        carry = (res > 9) ? 1 : 0;
+        carry = res / 10;
         res = res % 10;
 
         curr->next = malloc(sizeof(struct ListNode));
