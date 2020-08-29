@@ -1,9 +1,6 @@
 // https://leetcode.com/problems/add-two-numbers/
 
-struct ListNode {
-    int val;
-    struct ListNode *next;
-};
+#include "lists.h"
 
 
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
@@ -29,10 +26,4 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     }
 
     return dummy->next;
-}
-
-int main(int argc, char **argv) {
-    printf("Hello, world!\n");
-
-    return 0;
 }

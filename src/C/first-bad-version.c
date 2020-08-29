@@ -2,6 +2,12 @@
 // The API isBadVersion is defined for you.
 // bool isBadVersion(int version);
 
+typedef int bool;
+
+
+bool isBadVersion(int v) { return 1; }
+
+
 int firstBadVersion(int n) {
     int lo = 1;
     int hi = n;
