@@ -28,12 +28,7 @@ ${RUST_JOBS}: rjob%:
 #-----------------------------
 #   Testing Python code
 
-FILES := $(shell find ./src/Python/ -name '*.py')
-PYTHON_JOBS := $(addprefix pjob,${FILES})
-
 .PHONY : python
 
-python: ${PYTHON_JOBS} ; @echo "[$@] finished!"
-
-${PYTHON_JOBS}: pjob%:
-	@python3 $*
+python:
+	@cd src/Python && python3 -m unittest -vvv
