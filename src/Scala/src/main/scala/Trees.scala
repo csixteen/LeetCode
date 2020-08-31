@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/binary-tree-inorder-traversal/
-
 class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {
   var value: Int = _value
   var left: TreeNode = _left
@@ -8,6 +6,9 @@ class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null)
 
 
 object Solution {
+  /**
+   * https://leetcode.com/problems/binary-tree-inorder-traversal/
+   */
   def inorderTraversal(root: TreeNode): List[Int] = {
     root match {
       case null => List()
