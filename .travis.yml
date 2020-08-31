@@ -1,5 +1,10 @@
 matrix:
   include:
+  - language: python
+    python: 3.8
+    script:
+    - make python
+ 
   - language: rust
     rust:
     - stable
