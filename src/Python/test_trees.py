@@ -115,6 +115,48 @@ class TestTrees(unittest.TestCase):
             ),
         )
 
+    def test_buildFromInorderPreorder(self):
+        self.assertEqual(
+            TreeNode(
+                3,
+                TreeNode(9),
+                TreeNode(20, TreeNode(15), TreeNode(7)),
+            ),
+            self.s.buildFromInorderPreorder(
+                [3, 9, 20, 15, 7], [9, 3, 15, 20, 7],
+            ),
+        )
+
+    def test_preorderTraversal(self):
+        self.assertEqual(
+            [1, 2, 3],
+            self.s.preorderTraversal(
+                TreeNode(1, right=TreeNode(2, left=TreeNode(3))),
+            ),
+        )
+
+    def test_isSameTree(self):
+        self.assertTrue(
+            self.s.isSameTree(
+                TreeNode(1, TreeNode(2), TreeNode(3)),
+                TreeNode(1, TreeNode(2), TreeNode(3)),
+            ),
+        )
+
+        self.assertFalse(
+            self.s.isSameTree(
+                TreeNode(1, left=TreeNode(2)),
+                TreeNode(1, right=TreeNode(2)),
+            ),
+        )
+
+        self.assertFalse(
+            self.s.isSameTree(
+                TreeNode(1, TreeNode(2), TreeNode(1)),
+                TreeNode(1, TreeNode(1), TreeNode(2)),
+            ),
+        )
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -110,7 +110,7 @@ class Solution:
 
         return res
 
-    def buildFromInorderPostorder(self, inorder: List, postorder: List[int]) -> TreeNode:
+    def buildFromInorderPostorder(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         """
         https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
         """
@@ -123,6 +123,47 @@ class Solution:
         root.right = self.buildFromInorderPostorder(inorder[i+1:], postorder[i:-1])
 
         return root
+
+    def buildFromInorderPreorder(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        """
+        https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+        """
+        if not preorder and not inorder:
+            return None
+
+        root = TreeNode(preorder[0])
+        i = inorder.index(preorder[0])
+        root.left = self.buildFromInorderPreorder(preorder[1:i+1], inorder[:i])
+        root.right = self.buildFromInorderPreorder(preorder[i+1:], inorder[i+1:])
+
+        return root
+
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        """ https://leetcode.com/problems/binary-tree-preorder-traversal/ """
+        if not root:
+            return []
+
+        res = []
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+
+        return res
+
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        """ https://leetcode.com/problems/same-tree/ """
+        if not p and not q:
+            return True
+        elif (not p or not q) or (p.val != q.val):
+            return False
+        else:
+            return self.isSameTree(p.left, q.left) and \
+                    self.isSameTree(p.right, q.right)
 
 
 class TestTreeNode(unittest.TestCase):
