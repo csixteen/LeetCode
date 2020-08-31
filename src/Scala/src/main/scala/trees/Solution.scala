@@ -24,4 +24,17 @@ object Solution {
       case _ => List(root.value) ::: preorderTraversal(root.left) ::: preorderTraversal(root.right)
     }
   }
+
+  // https://leetcode.com/problems/same-tree/
+  def isSameTree(p: TreeNode, q: TreeNode): Boolean = {
+    (p, q) match {
+      case (null, null) => true
+      case (null, _) => false
+      case (_, null) => false
+      case _ => {
+        if (p.value != q.value) false
+        else isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+      }
+    }
+  }
 }
