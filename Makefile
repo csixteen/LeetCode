@@ -32,3 +32,12 @@ ${RUST_JOBS}: rjob%:
 
 python:
 	@cd src/Python && python3 -m unittest -vvv
+
+
+#------------------------------
+#   Testing Scala code
+
+.PHONY : scala
+
+scala:
+	@cd src/Scala && sbt test
