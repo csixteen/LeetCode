@@ -165,6 +165,55 @@ class Solution:
             return self.isSameTree(p.left, q.left) and \
                     self.isSameTree(p.right, q.right)
 
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        # TODO: review this one
+        if not root:
+            return []
+
+        res = []
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            
+            if not node.left and not node.right:
+                res.append(node.val)
+            else:
+                if node.right:
+                    stack.append(node.right)
+                    node.right = None
+                stack.append(node)
+                if node.left:
+                    stack.append(node.left)
+                    node.left = None
+
+        return res
+
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return None
+
+        root.left = self.invertTree(root.right)
+        root.right = self.invertTree(root.left)
+
+        return root
+
+    def isSymmetric(self, root: TreeNode) -> bool:
+        """ https://leetcode.com/problems/symmetric-tree """
+        def loop(left: TreeNode, right: TreeNode) -> bool:
+            if not left or not right:
+                return not left and not right
+
+            return (
+                left.val == right.val and
+                loop(left.left, right.right) and
+                loop(left.right, right.left)
+            )
+
+        if not root:
+            return True
+
+        return loop(root.left, root.right)
+
 
 class TestTreeNode(unittest.TestCase):
     def test_equal_trees(self):
