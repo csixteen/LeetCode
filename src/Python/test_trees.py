@@ -157,6 +157,28 @@ class TestTrees(unittest.TestCase):
             ),
         )
 
+    def test_isSubtree(self):
+        self.assertTrue(
+            self.s.isSubtree(
+                TreeNode(
+                    3,
+                    TreeNode(4, TreeNode(1), TreeNode(2)),
+                    TreeNode(5)
+                ),
+                TreeNode(4, TreeNode(1), TreeNode(2)),
+            )
+        )
+
+        self.assertFalse(
+            self.s.isSubtree(
+                TreeNode(
+                    3,
+                    TreeNode(4, TreeNode(1), TreeNode(2, left=TreeNode(0))),
+                ),
+                TreeNode(4, TreeNode(1), TreeNode(2)),
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

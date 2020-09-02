@@ -162,8 +162,10 @@ class Solution:
         elif (not p or not q) or (p.val != q.val):
             return False
         else:
-            return self.isSameTree(p.left, q.left) and \
-                    self.isSameTree(p.right, q.right)
+            return (
+                self.isSameTree(p.left, q.left) and
+                self.isSameTree(p.right, q.right)
+            )
 
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         # TODO: review this one
@@ -213,6 +215,20 @@ class Solution:
             return True
 
         return loop(root.left, root.right)
+
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        """ https://leetcode.com/problems/subtree-of-another-tree/ """
+        if not s and not t:
+            return True
+
+        if not s or not t:
+            return False
+
+        return (
+            self.isSameTree(s, t) or
+            self.isSubtree(s.left, t) or
+            self.isSubtree(s.right, t)
+        )
 
 
 class TestTreeNode(unittest.TestCase):
