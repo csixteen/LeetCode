@@ -25,6 +25,21 @@ class TreeNode:
             return l and r
 
 
+class NPTreeNode(TreeNode):
+    """
+    Used here: https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+    """
+    def __init__(
+        self,
+        val: int,
+        left: NPTreeNode = None,
+        right: NPTreeNode = None,
+        _next: NPTreeNode = None,
+    ):
+        super().__init__(val, left, right)
+        self.next = _next
+
+
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
         def loop(node: TreeNode, acc: List[List[Int]], level: int):
@@ -229,6 +244,36 @@ class Solution:
             self.isSubtree(s.left, t) or
             self.isSubtree(s.right, t)
         )
+
+    def populateNextRightPointers(self, root: NPTreeNode) -> NPTreeNode:
+        """
+        TODO: Review this one. Seems unnecessarily complicated.
+        https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+        """
+        if not root:
+            return None
+
+        level, i = 0, 0
+        queue = deque([root])
+
+        while len(queue) > 0:
+            node = queue.popleft()
+            if queue and i < 2**level - 1:
+                node.next = queue[0]
+            else:
+                node.next = None
+
+            i += 1
+            if i == 2**level:
+                i = 0
+                level += 1
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+        return root
 
 
 class TestTreeNode(unittest.TestCase):
