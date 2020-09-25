@@ -49,4 +49,24 @@ class SolutionTest extends AnyFunSuite {
       )
     )
   }
+
+  test("Solution.kthSmallest") {
+    assert(Solution.kthSmallest(
+      new TreeNode(
+        3,
+        _left = new TreeNode(1, _right = new TreeNode(2)),
+        _right = new TreeNode(4)
+      ), 1) == 1)
+
+    assert(Solution.kthSmallest(
+      new TreeNode(
+        5,
+        _left = new TreeNode(
+          3,
+          _left = new TreeNode(2, _left = new TreeNode(1)),
+          _right = new TreeNode(4)
+        ),
+        _right = new TreeNode(6)
+      ), 3) == 3)
+  }
 }

@@ -37,4 +37,18 @@ object Solution {
       }
     }
   }
+
+  // https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+  def kthSmallest(root: TreeNode, k: Int): Int = {
+    def inorder(node: TreeNode): List[Int] = {
+      node match {
+        case null => Nil
+        case _ => {
+          inorder(node.left) ::: (node.value :: inorder(node.right))
+        }
+      }
+    }
+
+    inorder(root).take(k).last
+  }
 }
