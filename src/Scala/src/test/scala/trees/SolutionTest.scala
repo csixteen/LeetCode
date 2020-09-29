@@ -1,3 +1,5 @@
+package trees.test
+
 import org.scalatest.funsuite.AnyFunSuite
 import trees.{TreeNode, Solution}
 
