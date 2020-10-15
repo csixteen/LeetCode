@@ -1,6 +1,6 @@
 .PHONY : all
 
-all: rust python
+all: rust python scala
 
 SRC := src/
 
