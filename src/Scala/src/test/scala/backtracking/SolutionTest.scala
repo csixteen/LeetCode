@@ -10,4 +10,10 @@ class SolutionTest extends AnyFunSuite {
         List("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf")
     )
   }
+
+  test("Solution.generateParenthesis") {
+    assert(Solution.generateParenthesis(1) == List("()"))
+    assert(Solution.generateParenthesis(3) ==
+      List("((()))", "(()())", "(())()", "()(())", "()()()"))
+  }
 }

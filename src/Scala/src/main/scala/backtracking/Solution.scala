@@ -1,7 +1,8 @@
 package backtracking
 
+import scala.collection.mutable.ListBuffer
+
 object Solution {
-  // https://leetcode.com/problems/letter-combinations-of-a-phone-number/
   private def combinations(as: List[String]): List[List[Char]] = {
     as match {
       case Nil => List()
@@ -13,6 +14,7 @@ object Solution {
     }
   }
 
+  // https://leetcode.com/problems/letter-combinations-of-a-phone-number/
   def letterCombinations(digits: String): List[String] = {
     val pad = Map(
       '2' -> "abc",
@@ -26,5 +28,22 @@ object Solution {
     )
 
     combinations(digits.map(pad(_)).toList).map(_.mkString)
+  }
+
+  // https://leetcode.com/problems/generate-parentheses/
+  def generateParenthesis(n: Int): List[String] = {
+    def go(acc: ListBuffer[String], curr: String, left: Int, right: Int): Unit = {
+      if (left == 0 && right == 0) acc.append(curr)
+      else {
+        if (left > 0) go(acc, curr + "(", left-1, right)
+        if (right > left) go(acc, curr + ")", left, right-1)
+      }
+    }
+
+    val acc = ListBuffer[String]()
+
+    go(acc, "", n, n)
+
+    acc.toList
   }
 }
