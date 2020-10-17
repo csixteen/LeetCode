@@ -46,4 +46,18 @@ object Solution {
 
     acc.toList
   }
+
+  // https://leetcode.com/problems/permutations/
+  def permute(nums: Array[Int]): List[List[Int]] = {
+    def go(as: List[Int]): List[List[Int]] = {
+      if (as.isEmpty) List(List())
+      else as.flatMap(c => {
+        val cIdx = as.indexOf(c)
+        val without = as.take(cIdx) ::: as.drop(cIdx+1)
+        go(without).map(c::_)
+      })
+    }
+
+    go(nums.toList)
+  }
 }

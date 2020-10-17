@@ -16,4 +16,15 @@ class SolutionTest extends AnyFunSuite {
     assert(Solution.generateParenthesis(3) ==
       List("((()))", "(()())", "(())()", "()(())", "()()()"))
   }
+
+  test("Solution.permute") {
+    assert(Solution.permute(Array(1, 2, 3)) ==
+      List(
+        List(1, 2, 3),
+        List(1, 3, 2),
+        List(2, 1, 3),
+        List(2, 3, 1),
+        List(3, 1, 2),
+        List(3, 2, 1)))
+  }
 }
