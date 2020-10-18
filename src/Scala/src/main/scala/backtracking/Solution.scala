@@ -61,6 +61,7 @@ object Solution {
     go(nums.toList)
   }
 
+  // https://leetcode.com/problems/subsets/
   def subsets(nums: Array[Int]): List[List[Int]] = {
     @annotation.tailrec
     def go(as: List[Int], acc: List[List[Int]]): List[List[Int]] = {
