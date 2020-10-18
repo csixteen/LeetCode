@@ -27,4 +27,17 @@ class SolutionTest extends AnyFunSuite {
         List(3, 1, 2),
         List(3, 2, 1)))
   }
+
+  test("Solution.subsets") {
+    assert(Solution.subsets(Array(1, 2, 3)) ==
+      List(
+        List(),
+        List(1),
+        List(2),
+        List(1, 2),
+        List(3),
+        List(1, 3),
+        List(2, 3),
+        List(1, 2, 3)))
+  }
 }

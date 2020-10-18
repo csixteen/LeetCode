@@ -60,4 +60,16 @@ object Solution {
 
     go(nums.toList)
   }
+
+  def subsets(nums: Array[Int]): List[List[Int]] = {
+    @annotation.tailrec
+    def go(as: List[Int], acc: List[List[Int]]): List[List[Int]] = {
+      as match {
+        case Nil => acc
+        case h::t => go(t, acc ::: acc.map(_.appended(h)))
+      }
+    }
+
+    go(nums.toList, List(List()))
+  }
 }
