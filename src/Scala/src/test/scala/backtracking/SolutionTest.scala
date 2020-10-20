@@ -40,4 +40,36 @@ class SolutionTest extends AnyFunSuite {
         List(2, 3),
         List(1, 2, 3)))
   }
+
+  test("Solution.existsWord") {
+    assert(
+      Solution.existsWord(
+        Array(
+          Array('A', 'B', 'C', 'E'),
+          Array('S', 'F', 'C', 'S'),
+          Array('A', 'D', 'E', 'E'),
+        ),
+        "ABCCED",
+      ))
+
+    assert(
+      Solution.existsWord(
+        Array(
+          Array('A', 'B', 'C', 'E'),
+          Array('S', 'F', 'C', 'S'),
+          Array('A', 'D', 'E', 'E'),
+        ),
+        "SEE",
+      ))
+
+    assert(
+      !Solution.existsWord(
+        Array(
+          Array('A', 'B', 'C', 'E'),
+          Array('S', 'F', 'C', 'S'),
+          Array('A', 'D', 'E', 'E'),
+        ),
+        "ABCB",
+      ))
+  }
 }

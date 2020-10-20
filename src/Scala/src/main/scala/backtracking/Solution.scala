@@ -73,4 +73,38 @@ object Solution {
 
     go(nums.toList, List(List()))
   }
+
+  // https://leetcode.com/problems/word-search/
+  // The original method is called `exist`, which is a poor choice of name
+  def existsWord(board: Array[Array[Char]], word: String): Boolean = {
+    def go(from: Int, i: Int, j: Int, visited: Set[(Int, Int)]): Boolean = {
+      if (from >= word.length) true
+      else if (
+        i < 0 ||
+        i >= board.length ||
+        j < 0 ||
+        j >= board(0).length ||
+        visited.exists(_ == (i,j)) ||
+        word(from) != board(i)(j)
+      ) false
+      else {
+        val newVisited = visited + ((i,j))
+        val newFrom = from+1
+
+        go(newFrom, i, j+1, newVisited) ||
+        go(newFrom, i, j-1, newVisited) ||
+        go(newFrom, i+1, j, newVisited) ||
+        go(newFrom, i-1, j, newVisited)
+      }
+    }
+
+    for {
+      i <- (0 to board.length-1)
+      j <- (0 to board(0).length-1)
+    } yield {
+      if (go(0, i, j, Set())) return true
+    }
+
+    false
+  }
 }
