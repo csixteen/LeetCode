@@ -1,6 +1,7 @@
 package sorting
 
 object Solution {
+  // https://leetcode.com/problems/sort-colors/
   def sortColors(nums: Array[Int]): Unit = {
     def swap(a: Int, b: Int): Unit = {
       val tmp = nums(a)
