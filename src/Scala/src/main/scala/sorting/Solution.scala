@@ -25,7 +25,6 @@ object Solution {
   }
 
   // https://leetcode.com/problems/top-k-frequent-elements/
-  // x.update(key, x.getOrElseUpdate(key, 0) + 1)
   def topKFrequent(nums: Array[Int], k: Int): Array[Int] = {
     nums
       .groupBy(x => x)
