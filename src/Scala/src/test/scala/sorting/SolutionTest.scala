@@ -1,7 +1,7 @@
 package sorting.test
 
 import org.scalatest.funsuite.AnyFunSuite
-import sorting.Solution
+import sorting.Solution._
 
 class SolutionTest extends AnyFunSuite {
   test("Solution.sortColors") {
@@ -12,9 +12,14 @@ class SolutionTest extends AnyFunSuite {
       (Array(1), Array(1)),
     ).foreach{
       case (input, expected) => {
-        Solution.sortColors(input)
+        sortColors(input)
         assert(input === expected)
       }
     }
+  }
+
+  test("Solution.topKFrequent") {
+    assert(topKFrequent(Array(1, 1, 1, 2, 2, 3), 2) === Array(1, 2))
+    assert(topKFrequent(Array(1), 1) === Array(1))
   }
 }

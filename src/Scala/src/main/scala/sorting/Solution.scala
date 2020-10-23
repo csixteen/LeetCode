@@ -1,5 +1,7 @@
 package sorting
 
+import scala.collection.mutable
+
 object Solution {
   // https://leetcode.com/problems/sort-colors/
   def sortColors(nums: Array[Int]): Unit = {
@@ -20,5 +22,17 @@ object Solution {
     }
 
     go(0, 0, nums.length-1)
+  }
+
+  // https://leetcode.com/problems/top-k-frequent-elements/
+  // x.update(key, x.getOrElseUpdate(key, 0) + 1)
+  def topKFrequent(nums: Array[Int], k: Int): Array[Int] = {
+    nums
+      .groupBy(x => x)
+      .values
+      .toArray
+      .sortWith{ case (a,b) => a.length.compareTo(b.length) > 0 }
+      .map(_.head)
+      .take(k)
   }
 }
