@@ -34,4 +34,13 @@ object Solution {
       .map(_.head)
       .take(k)
   }
+
+  // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  def findKthLargestNaive(nums: Array[Int], k: Int): Int = {
+    nums.sortWith((a,b) => a.compareTo(b) > 0)(k-1)
+  }
+
+  def findKthLargestMinHeap(nums: Array[Int], k: Int): Int = {
+    mutable.PriorityQueue[Int]().addAll(nums).dequeueAll(k-1)
+  }
 }

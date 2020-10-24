@@ -22,4 +22,9 @@ class SolutionTest extends AnyFunSuite {
     assert(topKFrequent(Array(1, 1, 1, 2, 2, 3), 2) === Array(1, 2))
     assert(topKFrequent(Array(1), 1) === Array(1))
   }
+
+  test("Solution.findKthLargest") {
+    assert(findKthLargestNaive(Array(3, 2, 1, 5, 6, 4), 2) == 5)
+    assert(findKthLargestMinHeap(Array(3, 2, 1, 5, 6, 4), 2) == 5)
+  }
 }
