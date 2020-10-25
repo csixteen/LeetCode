@@ -27,4 +27,11 @@ class SolutionTest extends AnyFunSuite {
     assert(findKthLargestNaive(Array(3, 2, 1, 5, 6, 4), 2) == 5)
     assert(findKthLargestMinHeap(Array(3, 2, 1, 5, 6, 4), 2) == 5)
   }
+
+  test("Solution.findPeakElement") {
+    assert(findPeakElementLinear(Array(1, 2, 3, 1)) == 2)
+    assert(findPeakElementLinear(Array(1, 2, 1, 3, 5, 6, 4)) == 1) // Could have been 5 as well
+    assert(findPeakElementLog(Array(1, 2, 3, 1)) == 2)
+    assert(findPeakElementLog(Array(1, 2, 1, 3, 5, 6, 4)) == 5)
+  }
 }
