@@ -1,5 +1,7 @@
 // https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/802/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
@@ -19,8 +21,34 @@ impl Solution {
         res
     }
 
-    pub fn serch_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        Vec::new()
+    fn find_extreme(nums: &Vec<i32>, target: i32, left: bool) -> usize {
+        let mut lo = 0;
+        let mut hi = nums.len();
+
+        while lo < hi {
+            let mid = lo + (hi - lo) / 2;
+
+            if nums[mid] > target || (left && target == nums[mid]) {
+                hi = mid;
+            } else {
+                lo = mid + 1;
+            }
+        }
+
+        lo
+    }
+
+    pub fn search_range_logarithmic(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let left_idx = Solution::find_extreme(&nums, target, true);
+
+        if left_idx == nums.len() || nums[left_idx] != target {
+            vec![-1, -1]
+        } else {
+            vec![
+                left_idx as i32,
+                Solution::find_extreme(&nums, target, false) as i32 - 1,
+            ]
+        }
     }
 }
 
@@ -57,6 +85,10 @@ mod tests {
         for t in tests.iter() {
             assert_eq!(
                 Solution::search_range_linear(t.nums.clone(), t.target),
+                t.expected.clone(),
+            );
+            assert_eq!(
+                Solution::search_range_logarithmic(t.nums.clone(), t.target),
                 t.expected.clone(),
             );
         }
