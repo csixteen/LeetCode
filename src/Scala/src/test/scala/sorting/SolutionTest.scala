@@ -34,4 +34,20 @@ class SolutionTest extends AnyFunSuite {
     assert(findPeakElementLog(Array(1, 2, 3, 1)) == 2)
     assert(findPeakElementLog(Array(1, 2, 1, 3, 5, 6, 4)) == 5)
   }
+
+  test("Solution.mergeIntervals") {
+    assert(
+      mergeIntervals(Array(Array(1, 3), Array(2, 6), Array(8, 10), Array(15, 18))) ===
+        Array(Array(1, 6), Array(8, 10), Array(15, 18)))
+    assert(mergeIntervals(Array(Array(1, 4), Array(4, 5))) === Array(Array(1, 5)))
+    assert(mergeIntervals(Array(Array(1, 4), Array(0, 2), Array(3, 5))) === Array(Array(0, 5)))
+  }
+
+  test("Solution.mergeIntervalsFold") {
+    assert(
+      mergeIntervalsFold(Array(Array(1, 3), Array(2, 6), Array(8, 10), Array(15, 18))) ===
+        Array(Array(1, 6), Array(8, 10), Array(15, 18)))
+    assert(mergeIntervalsFold(Array(Array(1, 4), Array(4, 5))) === Array(Array(1, 5)))
+    assert(mergeIntervalsFold(Array(Array(1, 4), Array(0, 2), Array(3, 5))) === Array(Array(0, 5)))
+  }
 }

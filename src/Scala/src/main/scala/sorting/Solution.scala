@@ -73,4 +73,30 @@ object Solution {
 
     go(0, nums.length-1)
   }
+
+
+  //---------------------------------------------------------------
+
+  // https://leetcode.com/problems/merge-intervals/
+  def mergeIntervals(intervals: Array[Array[Int]]): Array[Array[Int]] = {
+    def go(ints: Array[Array[Int]]): Array[Array[Int]] = {
+      if (ints.length < 2) ints
+      else
+        ints match {
+          case Array(Array(x1, x2), Array(y1, y2), xs@_*) if (x2 >= y1) =>
+            go(Array(x1, x2.max(y2)) +: xs.toArray)
+          case Array(x, xs@_*) => x +: go(xs.toArray)
+        }
+    }
+
+    go(intervals.sortBy(_(0)))
+  }
+
+  def mergeIntervalsFold(intervals: Array[Array[Int]]): Array[Array[Int]] = {
+    intervals.sortBy(_(0)).foldLeft(Array[Array[Int]]())((acc, a) => {
+        if (acc.isEmpty) Array(a)
+        else if(a(0) <= acc.last(1)) acc.init.appended(Array(acc.last(0), acc.last(1).max(a(1))))
+        else acc.appended(a)
+    })
+  }
 }
