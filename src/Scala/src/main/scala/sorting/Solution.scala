@@ -110,7 +110,7 @@ object Solution {
       if (start > end) -1
       else {
         val mid = start + (end - start) / 2
-        (nums(mid).compareTo(target), nums(mid).compareTo(nums(start)) )match {
+        (nums(mid).compareTo(target), nums(mid).compareTo(nums(start))) match {
           case (0, _) => mid
           case (_, -1) =>
             if (target <= nums(end) && target > nums(mid)) go(mid+1, end)
