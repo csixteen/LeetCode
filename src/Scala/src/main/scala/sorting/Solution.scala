@@ -99,4 +99,29 @@ object Solution {
         else acc.appended(a)
     })
   }
+
+
+  //---------------------------------------------------------------
+
+  // https://leetcode.com/problems/search-in-rotated-sorted-array/
+  // The original method is called `search`, which is a poor choice of name
+  def searchInSortedArray(nums: Array[Int], target: Int): Int = {
+    def go(start: Int, end: Int): Int = {
+      if (start > end) -1
+      else {
+        val mid = start + (end - start) / 2
+        (nums(mid).compareTo(target), nums(mid).compareTo(nums(start)) )match {
+          case (0, _) => mid
+          case (_, -1) =>
+            if (target <= nums(end) && target > nums(mid)) go(mid+1, end)
+            else go(start, mid-1)
+          case _ =>
+            if (target >= nums(start) && target < nums(mid)) go(start, mid-1)
+            else go(mid+1, end)
+        }
+      }
+    }
+
+    go(0, nums.length-1)
+  }
 }

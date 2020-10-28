@@ -50,4 +50,10 @@ class SolutionTest extends AnyFunSuite {
     assert(mergeIntervalsFold(Array(Array(1, 4), Array(4, 5))) === Array(Array(1, 5)))
     assert(mergeIntervalsFold(Array(Array(1, 4), Array(0, 2), Array(3, 5))) === Array(Array(0, 5)))
   }
+
+  test("Solution.searchInSortedArray") {
+    assert(searchInSortedArray(Array(4, 5, 6, 7, 0, 1, 2), 0) == 4)
+    assert(searchInSortedArray(Array(4, 5, 6, 7, 0, 1, 2), 3) == -1)
+    assert(searchInSortedArray(Array(1), 0) == -1)
+  }
 }
