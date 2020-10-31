@@ -56,4 +56,24 @@ class SolutionTest extends AnyFunSuite {
     assert(searchInSortedArray(Array(4, 5, 6, 7, 0, 1, 2), 3) == -1)
     assert(searchInSortedArray(Array(1), 0) == -1)
   }
+
+  test("Solution.minMeetingRooms") {
+    assert(minMeetingRooms(Array(Array(0, 30), Array(5, 10), Array(15, 20))) == 2)
+    assert(minMeetingRooms(Array(Array(7, 10), Array(2, 4))) == 1)
+    assert(minMeetingRooms(
+      Array(
+        Array(0, 30),
+        Array(5, 10),
+        Array(8, 16),
+        Array(15, 20)
+      )) == 3)
+    assert(minMeetingRooms(
+      Array(
+        Array(0, 30),
+        Array(5, 10),
+        Array(8, 16),
+        Array(11, 17),
+        Array(15, 20)
+      )) == 4)
+  }
 }

@@ -124,4 +124,28 @@ object Solution {
 
     go(0, nums.length-1)
   }
+
+
+  //---------------------------------------------------------------
+
+  // https://leetcode.com/problems/meeting-rooms-ii/
+  /*
+   * The idea behind this solution is to associate an increment value to
+   * the start and to the end of an interval. When the interval starts,
+   * the increment value is positive (meaning we need another meeting room).
+   * The the interval ends, the increment value is negative, meaning that
+   * we've vacated a meeting room. If we have multiple intervals overlapping,
+   * we'll increment multiple times before we start decrementing. With that
+   * in mind, we can use scanLeft, which will return a collection containing
+   * cumulative results of applying the function going from left to right.
+   * The minimum number of meeting rooms is the max of these cumulative
+   * results.
+   */
+  def minMeetingRooms(intervals: Array[Array[Int]]): Int = {
+    intervals.
+      flatMap(i => List((i(0), 1), (i(1), -1))).
+      sorted.
+      scanLeft(0)(_ + _._2).
+      max
+  }
 }
