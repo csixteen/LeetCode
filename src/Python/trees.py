@@ -275,6 +275,26 @@ class Solution:
 
         return root
 
+    def kthSmallest(self, root: TreeNote, k: int) -> int:
+        """ TODO: review """
+        stack = [root]
+        counter = 0
+
+        while stack:
+            node = stack.pop()
+            if not node.left and not node.right:
+                counter += 1
+                if counter == k:
+                    return node.val
+            else:
+                if node.right:
+                    stack.append(node.right)
+                    node.right = None
+                stack.append(node)
+                if node.left:
+                    stack.append(node.left)
+                    node.left = None
+
 
 class TestTreeNode(unittest.TestCase):
     def test_equal_trees(self):
