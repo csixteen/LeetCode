@@ -148,4 +148,41 @@ object Solution {
       scanLeft(0)(_ + _._2).
       max
   }
+
+
+  //---------------------------------------------------------------
+
+  // https://leetcode.com/problems/search-a-2d-matrix-ii/
+  def searchMatrix(matrix: Array[Array[Int]], target: Int): Boolean = {
+    matrix.exists(binSearch(_, target))
+  }
+
+  private def binSearch(as: Array[Int], target: Int): Boolean = {
+    def go(start: Int, end: Int): Boolean = {
+      if (start > end) false
+      else {
+        val mid = start + (end - start) / 2
+        as(mid).compareTo(target) match {
+          case 0 => true
+          case -1 => go(mid+1, end)
+          case 1 => go(start, mid-1)
+        }
+      }
+    }
+
+    go(0, as.length-1)
+  }
+
+  def searchMatrixRC(matrix: Array[Array[Int]], target: Int): Boolean = {
+    def go(row: Int, col: Int): Boolean = {
+      if (row >= matrix.length || col < 0) false
+      else matrix(row)(col).compareTo(target) match {
+        case 0 => true
+        case 1 => go(row, col-1)
+        case -1 => go(row+1, col)
+      }
+    }
+
+    go(0, matrix(0).length-1)
+  }
 }
