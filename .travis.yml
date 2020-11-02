@@ -3,10 +3,10 @@ matrix:
   - language: python
     python: 3.8
     script:
-    - make python
+    - cd Algorithms && make python
  
   - language: rust
     rust:
     - stable
     script:
-    - make rust
+    - cd Algorithms && make rust
