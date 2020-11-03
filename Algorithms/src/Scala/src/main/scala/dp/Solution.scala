@@ -16,4 +16,11 @@ object Solution {
       case None => false
     }
   }
+
+  // https://leetcode.com/problems/unique-paths/
+  def uniquePaths(m: Int, n: Int): Int = {
+    (0 until n-1).foldLeft(List.fill(m)(1))(
+      (acc, _) => acc.scanLeft(0)(_+_).tail
+    ).last
+  }
 }
