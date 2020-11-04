@@ -1,11 +1,3 @@
--- Students with Invalid Departments
--- https://leetcode.com/problems/students-with-invalid-departments/
-SELECT Students.id, Students.name
-FROM Students LEFT JOIN Departments
-ON Students.department_id = Departments.id
-WHERE Departments.id IS NULL;
-
-
 -- Bank Account Summary II
 -- https://leetcode.com/problems/bank-account-summary-ii/
 SELECT Users.NAME, SUM(Transactions.amount) AS BALANCE
