@@ -1,9 +1,3 @@
--- Patients with a condition
--- https://leetcode.com/problems/patients-with-a-condition/
-SELECT * FROM Patients
-WHERE conditions LIKE '% DIAB1%' OR conditions LIKE 'DIAB1%';
-
-
 -- Group Sold Products by the Date
 -- https://leetcode.com/problems/group-sold-products-by-the-date/
 SELECT
