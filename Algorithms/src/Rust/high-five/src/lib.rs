@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/high-five/
 
-use std::collections::HashMap;
+use std::collections::{BinaryHeap,BTreeMap,HashMap};
 
 
 struct Solution;
@@ -11,7 +11,7 @@ impl Solution {
             items
                 .iter()
                 .fold(HashMap::new(), |mut acc, i| {
-                    let g = acc.entry(i[0]).or_insert(Vec::new()).push(i[1]);
+                    acc.entry(i[0]).or_insert(Vec::new()).push(i[1]);
                     acc
                 })
                 .iter()
@@ -25,6 +25,25 @@ impl Solution {
         grades.sort_by(|a, b| a[0].cmp(&b[0]));
         grades
     }
+
+    // Using BTreeMap and BinaryHeap
+    pub fn high_five2(items: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        items
+            .iter()
+            .fold(BTreeMap::new(), |mut acc, i| {
+                acc.entry(i[0]).or_insert(BinaryHeap::new()).push(i[1]);
+                acc
+            })
+            .into_iter()
+            .map(|(id, mut grades)| {
+                let mut s: i32 = 0;
+                for _ in 0..5 {
+                    s += grades.pop().unwrap();
+                }
+                vec![id, s / 5]
+            })
+            .collect()
+    }
 }
 
 #[cfg(test)]
@@ -33,43 +52,53 @@ mod tests {
 
     #[test]
     fn test_example1() {
+        let items =
+            vec![
+                vec![1, 91],
+                vec![1, 92],
+                vec![2, 93],
+                vec![2, 97],
+                vec![1, 60],
+                vec![2, 77],
+                vec![1, 65],
+                vec![1, 87],
+                vec![1, 100],
+                vec![2, 100],
+                vec![2, 76]
+            ];
+
         assert_eq!(
-            Solution::high_five(
-                vec![
-                    vec![1, 91],
-                    vec![1, 92],
-                    vec![2, 93],
-                    vec![2, 97],
-                    vec![1, 60],
-                    vec![2, 77],
-                    vec![1, 65],
-                    vec![1, 87],
-                    vec![1, 100],
-                    vec![2, 100],
-                    vec![2, 76]
-                ]
-            ),
+            Solution::high_five(items.clone()),
+            vec![vec![1,87], vec![2,88]],
+        );
+        assert_eq!(
+            Solution::high_five2(items.clone()),
             vec![vec![1,87], vec![2,88]],
         );
     }
 
     #[test]
     fn test_example2() {
+        let items =
+            vec![
+                vec![1, 100],
+                vec![7, 100],
+                vec![1, 100],
+                vec![7, 100],
+                vec![1, 100],
+                vec![7, 100],
+                vec![1, 100],
+                vec![7, 100],
+                vec![1, 100],
+                vec![7, 100]
+            ];
+
         assert_eq!(
-            Solution::high_five(
-                vec![
-                    vec![1, 100],
-                    vec![7, 100],
-                    vec![1, 100],
-                    vec![7, 100],
-                    vec![1, 100],
-                    vec![7, 100],
-                    vec![1, 100],
-                    vec![7, 100],
-                    vec![1, 100],
-                    vec![7, 100]
-                ]
-            ),
+            Solution::high_five(items.clone()),
+            vec![vec![1,100], vec![7,100]],
+        );
+        assert_eq!(
+            Solution::high_five2(items.clone()),
             vec![vec![1,100], vec![7,100]],
         );
     }
