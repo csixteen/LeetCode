@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/word-search/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
