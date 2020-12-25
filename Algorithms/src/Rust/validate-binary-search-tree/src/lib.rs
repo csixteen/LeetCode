@@ -1,5 +1,8 @@
 // https://leetcode.com/problems/validate-binary-search-tree/
 
+#![allow(dead_code)]
+
+
 use std::cell::RefCell;
 use std::rc::Rc;
 
