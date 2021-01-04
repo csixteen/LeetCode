@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/valid-palindrome/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
@@ -29,7 +31,7 @@ impl Solution {
     }
 
     pub fn is_palindrome3(s: String) -> bool {
-        let mut i = s
+        let i = s
             .chars()
             .filter(|x| x.is_alphanumeric())
             .map(|x| x.to_ascii_lowercase());
