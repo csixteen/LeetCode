@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/uncrossed-lines/
 
-struct Solution {}
+#![allow(dead_code)]
+
+struct Solution;
 
 impl Solution {
     pub fn max_uncrossed_lines(a: Vec<i32>, b: Vec<i32>) -> i32 {
