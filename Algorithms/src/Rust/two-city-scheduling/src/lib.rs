@@ -5,7 +5,9 @@
 // half the people go to city A and half the people go to city B. You are given
 // an array of costs, where costs[i] = [cost_to_cityA, cost_to_cityB].
 
-struct Solution {}
+#![allow(dead_code)]
+
+struct Solution;
 
 impl Solution {
     pub fn two_city_sched_cost(mut costs: Vec<Vec<i32>>) -> i32 {
