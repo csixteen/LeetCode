@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/top-k-frequent-elements/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution;
