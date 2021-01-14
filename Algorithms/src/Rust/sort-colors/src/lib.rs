@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/sort-colors/
 
-struct Solution {}
+#![allow(dead_code)]
+
+struct Solution;
 
 const COLOR_A: i32 = 0;
 const COLOR_B: i32 = 1;
