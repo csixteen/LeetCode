@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/shuffle-the-array/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
