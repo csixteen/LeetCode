@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/running-sum-of-1d-array/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
