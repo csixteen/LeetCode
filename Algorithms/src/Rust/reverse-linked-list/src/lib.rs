@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/reverse-linked-list/
 
+#![allow(dead_code)]
+
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
