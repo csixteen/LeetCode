@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/reverse-integer/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
