@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
+#![allow(dead_code)]
+
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,
