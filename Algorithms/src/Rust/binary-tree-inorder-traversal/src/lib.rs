@@ -1,8 +1,9 @@
 // https://leetcode.com/problems/binary-tree-inorder-traversal/submissions/
 
+#![allow(dead_code)]
+
 use std::cell::RefCell;
 use std::rc::Rc;
-
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -17,17 +18,18 @@ impl TreeNode {
         TreeNode {
             val,
             left: None,
-            right: None
+            right: None,
         }
     }
 }
-
 
 struct Solution;
 
 impl Solution {
     pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        if root.is_none() { return Vec::new() }
+        if root.is_none() {
+            return Vec::new();
+        }
 
         let mut res = Vec::new();
         let mut stack = Vec::new();
@@ -52,7 +54,6 @@ impl Solution {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -61,17 +62,15 @@ mod tests {
     fn test_example1() {
         assert_eq!(
             vec![1, 3, 2],
-            Solution::inorder_traversal(
-                Some(Rc::new(RefCell::new(TreeNode {
-                    val: 1,
-                    left: None,
-                    right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 2,
-                        left: Some(Rc::new(RefCell::new(TreeNode::new(3)))),
-                        right: None,
-                    }))),
+            Solution::inorder_traversal(Some(Rc::new(RefCell::new(TreeNode {
+                val: 1,
+                left: None,
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 2,
+                    left: Some(Rc::new(RefCell::new(TreeNode::new(3)))),
+                    right: None,
                 }))),
-            ),
+            }))),),
         );
     }
 }
