@@ -1,6 +1,8 @@
+#![allow(dead_code)]
+
 use std::collections::HashSet;
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
@@ -8,7 +10,7 @@ impl Solution {
 
         for n in nums.iter() {
             if visited.contains(n) {
-                return true
+                return true;
             }
 
             visited.insert(*n);
@@ -34,8 +36,8 @@ mod tests {
 
     #[test]
     fn test_example3() {
-        assert!(
-            Solution::contains_duplicate(vec![1, 1, 1, 3, 3, 4, 3, 2, 4, 2]),
-        );
+        assert!(Solution::contains_duplicate(vec![
+            1, 1, 1, 3, 3, 4, 3, 2, 4, 2
+        ]),);
     }
 }
