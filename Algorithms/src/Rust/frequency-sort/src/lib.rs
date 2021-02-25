@@ -1,9 +1,11 @@
 // https://leetcode.com/problems/sort-characters-by-frequency/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 use std::iter;
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     fn char_counter(s: &String) -> HashMap<char, usize> {
@@ -38,7 +40,7 @@ impl Solution {
             .iter()
             .enumerate()
             .rev()
-            .filter(|(i, chars)| !chars.is_empty())
+            .filter(|(_, chars)| !chars.is_empty())
             .map(|(i, chars)| {
                 chars
                     .iter()
