@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/group-anagrams/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution;
