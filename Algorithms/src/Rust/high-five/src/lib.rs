@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/high-five/
 
+#![allow(dead_code)]
+
 use std::collections::{BinaryHeap,BTreeMap,HashMap};
 
 
