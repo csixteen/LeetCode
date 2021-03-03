@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/implement-strstr/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
