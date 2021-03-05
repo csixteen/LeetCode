@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/implement-trie-prefix-tree/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 
