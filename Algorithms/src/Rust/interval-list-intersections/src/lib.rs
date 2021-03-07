@@ -1,9 +1,11 @@
 // https://leetcode.com/problems/interval-list-intersections/
 
+#![allow(dead_code)]
+
 use std::cmp::Ordering;
 use std::collections::VecDeque;
 
-struct Solution {}
+struct Solution;
 
 type Interval = Vec<i32>;
 
