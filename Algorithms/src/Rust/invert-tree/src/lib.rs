@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/invert-binary-tree/
 
+#![allow(dead_code)]
+
 use std::rc::Rc;
 use std::cell::RefCell;
 
