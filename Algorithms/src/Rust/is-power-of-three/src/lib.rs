@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/power-of-three/solution/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
