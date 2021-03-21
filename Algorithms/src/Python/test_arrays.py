@@ -19,6 +19,11 @@ class TestStrings(unittest.TestCase):
     def test_findDisappearedNumbers(self):
         self.assertEqual([5, 6], self.s.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]))
 
+    def test_maximumProduct(self):
+        self.assertEqual(6, self.s.maximumProduct([1, 2, 3]))
+        self.assertEqual(24, self.s.maximumProduct([1, 2, 3, 4]))
+        self.assertEqual(-6, self.s.maximumProduct([-1, -2, -3]))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
