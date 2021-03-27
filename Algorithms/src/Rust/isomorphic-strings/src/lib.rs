@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/isomorphic-strings/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution;
