@@ -1,9 +1,11 @@
 // https://leetcode.com/problems/jewels-and-stones/
 
+#![allow(dead_code)]
+
 use std::collections::HashSet;
 use std::iter::FromIterator;
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     pub fn num_jewels_in_stones(j: String, s: String) -> i32 {
