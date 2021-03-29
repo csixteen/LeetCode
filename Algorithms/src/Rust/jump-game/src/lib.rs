@@ -1,7 +1,9 @@
+#![allow(dead_code)]
+
 use std::cmp;
 use std::convert::TryInto;
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {
