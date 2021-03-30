@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/kth-largest-element-in-a-stream/
 
+#![allow(dead_code)]
+
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
