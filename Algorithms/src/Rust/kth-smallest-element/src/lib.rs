@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
+#![allow(dead_code)]
+
 use std::rc::Rc;
 use std::cell::RefCell;
 
@@ -21,7 +23,7 @@ impl TreeNode {
     }
 }
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     fn inorder(node: &Option<Rc<RefCell<TreeNode>>>, k: i32, acc: &mut Vec<i32>) {
