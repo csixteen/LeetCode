@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/logger-rate-limiter/
 
+#![allow(dead_code)]
+
 use std::cell::RefCell;
 use std::collections::HashMap;
 
