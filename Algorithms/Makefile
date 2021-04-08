@@ -10,7 +10,7 @@ SRC := src/
 
 define test_rust
 	@cd $* &&     \
-	cargo test && \
+	cargo test --release && \
 	cd ..;
 endef
 
