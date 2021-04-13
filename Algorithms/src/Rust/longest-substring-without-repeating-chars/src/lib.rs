@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution;
