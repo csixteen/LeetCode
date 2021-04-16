@@ -1,8 +1,10 @@
 // https://leetcode.com/problems/majority-element/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
-struct Solution {}
+struct Solution;
 
 impl Solution {
     pub fn majority_element(nums: Vec<i32>) -> i32 {
