@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/online-stock-span/
 
+#![allow(dead_code)]
+
 #[derive(Default)]
 struct StockSpanner {
     stack: Vec<(i32, i32)>,
