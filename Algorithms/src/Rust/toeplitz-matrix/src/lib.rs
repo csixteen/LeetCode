@@ -6,10 +6,8 @@ impl Solution {
     pub fn is_toeplitz_matrix(matrix: Vec<Vec<i32>>) -> bool {
         let (rows, cols) = (matrix.len(), matrix[0].len());
 
-        for j in 0..rows {
-            for i in 0..cols {
-                if j == 0 || i == 0 { continue; }
-
+        for j in 1..rows {
+            for i in 1..cols {
                 if matrix[j][i] != matrix[j-1][i-1] {
                     return false
                 }
