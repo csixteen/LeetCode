@@ -67,3 +67,22 @@ class Solution:
                 max3 = n
 
         return max(min1*min2*max1, max1*max2*max3)
+
+    def fairCandySwap(self, aliceSizes: List[int], bobSizes: List[int]) -> List[int]:
+        """
+        https://leetcode.com/problems/fair-candy-swap/
+
+        The total amount of candies that Alice has is S_a. Similarly, the total
+        amount of candies that Bob has is S_b. In order for the candy swap to be
+        fair, then Alice gives a box `x` to Bob and in exchange receives a box `y`
+        from Bob, such that S_a - x + y = S_b + x - y. Finding a pair of boxes [x, y]
+        is a matter of solving the equation ((S_a - S_b) / 2) + y = x.
+        """
+        sum_a = sum(aliceSizes)
+        sum_b = sum(bobSizes)
+        set_a = set(aliceSizes)
+
+        for y in bobSizes:
+            x = (sum_a - sum_b) / 2 + y
+            if x in set_a:
+                return [x, y]
