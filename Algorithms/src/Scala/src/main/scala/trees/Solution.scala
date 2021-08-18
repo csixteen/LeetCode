@@ -51,4 +51,22 @@ object Solution {
 
     inorder(root).take(k).last
   }
+
+  // https://leetcode.com/problems/unique-binary-search-trees-ii/
+  def generateTrees(n: Int): List[TreeNode] = {
+    def _genTrees(xs: List[Int]): List[TreeNode] = {
+      xs match {
+        case List() => List(null)
+        case List(x) => List(new TreeNode(x))
+        case _ =>
+          for {
+            i <- xs.indices.toList
+            left <- _genTrees(xs.take(i))
+            right <- _genTrees(xs.drop(i+1))
+          } yield new TreeNode(xs(i), left, right)
+      }
+    }
+
+    _genTrees((1 to n).toList)
+  }
 }

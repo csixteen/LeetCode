@@ -71,4 +71,24 @@ class SolutionTest extends AnyFunSuite {
         _right = new TreeNode(6)
       ), 3) == 3)
   }
+
+  test("Solution.generateTrees") {
+    assert((Solution.generateTrees(3), List(
+        new TreeNode(
+          1, _right = new TreeNode(2, _right = new TreeNode(3)),
+        ),
+        new TreeNode(
+          1, _right = new TreeNode(3, _left = new TreeNode(2)),
+        ),
+        new TreeNode(
+          2, _left = new TreeNode(1), _right = new TreeNode(3),
+        ),
+        new TreeNode(
+          3, _left = new TreeNode(1, _right = new TreeNode(2)),
+        ),
+        new TreeNode(
+          3, _left = new TreeNode(2, _left = new TreeNode(1)),
+        ),
+      )).zipped.map(Solution.isSameTree(_, _)).foldLeft(true)(_ && _))
+  }
 }
