@@ -26,4 +26,20 @@ object Solution {
       (acc, _) => acc.scanLeft(0)(_+_).tail
     ).last
   }
+
+  //-------------------------------------------------
+
+  // https://leetcode.com/problems/interleaving-string/
+  def isInterleave(s1: String, s2: String, s3: String): Boolean = {
+    def go(i: int, j: int, k: int, acc: String): Boolean = {
+      (i == s1.length, j == s2.length) match {
+        case (true, _) => s2.substring(j) == s3.substring(k)
+        case (_, true) => s1.substring(i) == s3.substring(k)
+        case _         =>
+      }
+    }
+
+    if (s1.length + s2.length != s3.length) false
+    else go(0, 0, 0, "")
+  }
 }

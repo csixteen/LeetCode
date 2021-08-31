@@ -17,4 +17,10 @@ class SolutionTest extends AnyFunSuite {
     assert(uniquePaths(7, 3) == 28)
     assert(uniquePaths(3, 3) == 6)
   }
+
+  test("Solution.isInterleave") {
+    assert(isInterleave("aabcc", "dbbca", "aadbbcbcac"))
+    assert(!isInterleave("aabcc", "dbbca", "aadbbbaccc"))
+    assert(isInterleave("", "", ""))
+  }
 }
