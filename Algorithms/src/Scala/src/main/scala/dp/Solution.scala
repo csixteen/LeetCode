@@ -1,5 +1,7 @@
 package dp
 
+import scala.collection.mutable.HashMap
+
 
 object Solution {
   // https://leetcode.com/problems/jump-game/
@@ -31,15 +33,17 @@ object Solution {
 
   // https://leetcode.com/problems/interleaving-string/
   def isInterleave(s1: String, s2: String, s3: String): Boolean = {
-    def go(i: int, j: int, k: int, acc: String): Boolean = {
+    def go(i: Int, j: Int, k: Int, dp: HashMap[(Int,Int),Boolean]): Boolean = {
       (i == s1.length, j == s2.length) match {
         case (true, _) => s2.substring(j) == s3.substring(k)
         case (_, true) => s1.substring(i) == s3.substring(k)
         case _         =>
+          dp.getOrElseUpdate((i, j),
+            ((s3(k) == s1(i)) && go(i+1, j, k+1, dp)) ||
+            ((s3(k) == s2(j)) && go(i, j+1, k+1, dp)))
       }
     }
 
-    if (s1.length + s2.length != s3.length) false
-    else go(0, 0, 0, "")
+    (s1.length + s2.length == s3.length) && go(0, 0, 0, new HashMap[(Int,Int),Boolean]())
   }
 }
