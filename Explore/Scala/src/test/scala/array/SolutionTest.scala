@@ -25,12 +25,26 @@ class SolutionTest extends AnyFunSuite {
     duplicateZeros(example2)
     assert(example2 === Array(1, 2, 3))
 
-    //var example3 = Array(0, 0, 1)
-    //duplicateZeros(example3)
-    //assert(example3 === Array(0, 0, 0))
+    var example3 = Array(0, 0, 1)
+    duplicateZeros(example3)
+    assert(example3 === Array(0, 0, 0))
 
     var example4 = Array(8, 4, 5, 0, 0, 0, 0, 7)
     duplicateZeros(example4)
     assert(example4 === Array(8, 4, 5, 0, 0, 0, 0, 0))
+  }
+
+  test("Remove Element") {
+    var example1 = Array(3, 2, 2, 3)
+    assert(removeElement(example1, 3) == 2)
+
+    var example2 = Array(0, 1, 2, 2, 3, 0, 4, 2)
+    assert(removeElement(example2, 2) == 5)
+
+    var example3 = Array(3, 3)
+    assert(removeElement(example3, 3) == 0)
+
+    var example4 = Array(2)
+    assert(removeElement(example4, 3) == 1)
   }
 }

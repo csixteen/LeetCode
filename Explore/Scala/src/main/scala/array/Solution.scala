@@ -32,4 +32,18 @@ object Solution {
 
     go(0, new Queue[Int]())
   }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/526/deleting-items-from-an-array/3247/
+  def removeElement(nums: Array[Int], `val`: Int): Int = {
+    def go(i: Int, j: Int): Int = {
+      if (j >= nums.length) i
+      else
+        nums(j) == `val` match {
+          case false => nums(i) = nums(j); go(i+1, j+1)
+          case true  => go(i, j+1)
+        }
+    }
+
+    go(0, 0)
+  }
 }
