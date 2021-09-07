@@ -1,5 +1,6 @@
 package array
 
+import scala.collection.immutable.Set
 import scala.collection.mutable.Queue
 
 object Solution {
@@ -45,5 +46,30 @@ object Solution {
     }
 
     go(0, 0)
+  }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/
+  def checkIfExist(arr: Array[Int]): Boolean = {
+    def go(i: Int, acc: Set[Int]): Boolean = {
+      if (i >= arr.length) false
+      else if (acc.contains(2*arr(i)) || (arr(i) %2 == 0 && acc.contains(arr(i)/2))) true
+      else go(i+1, acc + arr(i))
+    }
+
+    go(0, Set())
+  }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/
+  def replaceElements(arr: Array[Int]): Array[Int] = {
+    def go(i: Int, maxSoFar: Int): Unit = {
+      if (i >= 0) {
+        val prev = arr(i)
+        arr(i) = maxSoFar
+        go(i-1, maxSoFar.max(prev))
+      }
+    }
+
+    go(arr.length-1, -1)
+    arr
   }
 }

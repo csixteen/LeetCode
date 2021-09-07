@@ -47,4 +47,15 @@ class SolutionTest extends AnyFunSuite {
     var example4 = Array(2)
     assert(removeElement(example4, 3) == 1)
   }
+
+  test("Check If N and Its Double Exist") {
+    assert(checkIfExist(Array(10, 2, 5, 3)))
+    assert(checkIfExist(Array(7, 1, 14, 11)))
+    assert(!checkIfExist(Array(3, 1, 7, 11)))
+  }
+
+  test("Replace Elements with Greatest Element on Right Side") {
+    assert(replaceElements(Array(17, 18, 5, 4, 6, 1)) === Array(18, 6, 6, 6, 1, -1))
+    assert(replaceElements(Array(400)) === Array(-1))
+  }
 }
