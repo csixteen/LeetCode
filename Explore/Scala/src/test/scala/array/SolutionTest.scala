@@ -58,4 +58,20 @@ class SolutionTest extends AnyFunSuite {
     assert(replaceElements(Array(17, 18, 5, 4, 6, 1)) === Array(18, 6, 6, 6, 1, -1))
     assert(replaceElements(Array(400)) === Array(-1))
   }
+
+  test("Remove Duplicates from Sorted Array") {
+    assert(removeDuplicates(Array(1, 1, 2)) == 2)
+    assert(removeDuplicates(Array(0, 0, 1, 1, 1, 2, 2, 3, 3, 4)) == 5)
+    assert(removeDuplicates(Array()) == 0)
+  }
+
+  test("Move Zeroes") {
+    val example1 = Array(0, 1, 0, 3, 12)
+    moveZeroes(example1)
+    assert(example1 === Array(1, 3, 12, 0, 0))
+
+    val example2 = Array(0)
+    moveZeroes(example2)
+    assert(example2 === Array(0))
+  }
 }

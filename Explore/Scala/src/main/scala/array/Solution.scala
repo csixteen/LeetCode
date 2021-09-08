@@ -72,4 +72,32 @@ object Solution {
     go(arr.length-1, -1)
     arr
   }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3258/
+  def removeDuplicates(nums: Array[Int]): Int = {
+    def go(write: Int, read: Int): Int = {
+      if (read >= nums.length) 0
+      else
+        nums(read) == nums(read-1) match {
+          case true => go(write, read+1)
+          case false => nums(write) = nums(read) ; 1 + go(write+1, read+1)
+        }
+    }
+
+    (if (nums.isEmpty) 0 else 1) + go(1, 1)
+  }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3157/
+  def moveZeroes(nums: Array[Int]): Unit = {
+    def go(write: Int, read: Int): Int = {
+      if (read >= nums.length) write
+      else
+        nums(read) == 0 match {
+          case true  => go(write, read+1)
+          case false => nums(write) = nums(read) ; go(write+1, read+1)
+        }
+    }
+
+    (go(0, 0) until nums.length).foreach(nums(_) = 0)
+  }
 }
