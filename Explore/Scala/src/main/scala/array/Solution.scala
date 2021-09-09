@@ -79,7 +79,7 @@ object Solution {
       if (read >= nums.length) 0
       else
         nums(read) == nums(read-1) match {
-          case true => go(write, read+1)
+          case true  => go(write, read+1)
           case false => nums(write) = nums(read) ; 1 + go(write+1, read+1)
         }
     }
@@ -99,5 +99,24 @@ object Solution {
     }
 
     (go(0, 0) until nums.length).foreach(nums(_) = 0)
+  }
+
+  def sortArrayByParity(nums: Array[Int]): Array[Int] = {
+    def swap(i: Int, j: Int): Unit = {
+      val tmp = nums(i)
+      nums(i) = nums(j)
+      nums(j) = tmp
+    }
+
+    def go(l: Int, r: Int): Unit = {
+      if (l < r)
+        (nums(l) % 2 == 0) match {
+          case true  => go(l+1, r)
+          case false => swap(l, r) ; go(l, r-1)
+        }
+    }
+
+    go(0, nums.length-1)
+    nums
   }
 }

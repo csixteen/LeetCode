@@ -74,4 +74,9 @@ class SolutionTest extends AnyFunSuite {
     moveZeroes(example2)
     assert(example2 === Array(0))
   }
+
+  test("Sort Array By Parity") {
+    assert(sortArrayByParity(Array(3, 1, 2, 4)) === Array(4, 2, 1, 3))
+    assert(sortArrayByParity(Array(0)) === Array(0))
+  }
 }
