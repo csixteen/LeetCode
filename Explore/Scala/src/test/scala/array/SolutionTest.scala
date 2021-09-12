@@ -79,4 +79,19 @@ class SolutionTest extends AnyFunSuite {
     assert(sortArrayByParity(Array(3, 1, 2, 4)) === Array(4, 2, 1, 3))
     assert(sortArrayByParity(Array(0)) === Array(0))
   }
+
+  test("Height Checker") {
+    assert(heightChecker(Array(1, 1, 4, 2, 1, 3)) == 3)
+    assert(heightChecker(Array(5, 1, 2, 3, 4)) == 5)
+    assert(heightChecker(Array(1, 2, 3, 4, 5)) == 0)
+  }
+
+  test("Max Consecutive Ones II") {
+    assert(findMaxConsecutiveOnes(Array(1, 0, 1, 1, 0)) == 4)
+    assert(findMaxConsecutiveOnes(Array(1, 0, 1, 1, 0, 1)) == 4)
+    assert(findMaxConsecutiveOnes(Array(0, 0, 0, 0)) == 1)
+    assert(findMaxConsecutiveOnes(Array(1, 0, 0, 1)) == 2)
+    assert(findMaxConsecutiveOnes(Array(1, 1, 0, 1)) == 4)
+    assert(findMaxConsecutiveOnes(Array(0)) == 1)
+  }
 }

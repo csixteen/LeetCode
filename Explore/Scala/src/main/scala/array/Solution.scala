@@ -101,6 +101,7 @@ object Solution {
     (go(0, 0) until nums.length).foreach(nums(_) = 0)
   }
 
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3260/
   def sortArrayByParity(nums: Array[Int]): Array[Int] = {
     def swap(i: Int, j: Int): Unit = {
       val tmp = nums(i)
@@ -118,5 +119,31 @@ object Solution {
 
     go(0, nums.length-1)
     nums
+  }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3228/
+  def heightChecker(heights: Array[Int]): Int = {
+    heights.zip(heights.sorted).filter{ case (x,y) => x != y }.length
+  }
+
+  // https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3230/
+  def findMaxConsecutiveOnes(nums: Array[Int]): Int = {
+    def up(left: Int, right: Int, zeroes: Int, maxSoFar: Int): Int = {
+      if (right >= nums.length) maxSoFar
+      else
+        nums(right) match {
+          case 0 => down(left, right, zeroes+1, maxSoFar)
+          case 1 => up(left, right+1, zeroes, maxSoFar.max(right+1-left))
+        }
+    }
+
+    def down(left: Int, right: Int, zeroes: Int, maxSoFar: Int): Int = {
+      zeroes > 1 match {
+        case true  => down(left+1, right, zeroes-(nums(left)^1), maxSoFar)
+        case false => up(left, right+1, zeroes, maxSoFar.max(right+1-left))
+      }
+    }
+
+    up(0, 0, 0, 0)
   }
 }
