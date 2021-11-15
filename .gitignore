@@ -1,3 +1,7 @@
 *.swp
 __pycache__
 target/
+.bloop/
+.metals
+metals.sbt
+.vscode/
