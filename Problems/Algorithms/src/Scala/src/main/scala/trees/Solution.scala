@@ -1,19 +1,26 @@
 package trees
 
+import scala.collection.mutable
 
-class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {
+class TreeNode(
+    _value: Int = 0,
+    _left: TreeNode = null,
+    _right: TreeNode = null
+) {
   var value: Int = _value
   var left: TreeNode = _left
   var right: TreeNode = _right
 }
-
 
 object Solution {
   // https://leetcode.com/problems/binary-tree-inorder-traversal/
   def inorderTraversal(root: TreeNode): List[Int] = {
     root match {
       case null => List()
-      case _ => inorderTraversal(root.left) ::: List(root.value) ::: inorderTraversal(root.right)
+      case _ =>
+        inorderTraversal(root.left) ::: List(root.value) ::: inorderTraversal(
+          root.right
+        )
     }
   }
 
@@ -21,7 +28,10 @@ object Solution {
   def preorderTraversal(root: TreeNode): List[Int] = {
     root match {
       case null => List()
-      case _ => List(root.value) ::: preorderTraversal(root.left) ::: preorderTraversal(root.right)
+      case _ =>
+        List(root.value) ::: preorderTraversal(root.left) ::: preorderTraversal(
+          root.right
+        )
     }
   }
 
@@ -29,8 +39,8 @@ object Solution {
   def isSameTree(p: TreeNode, q: TreeNode): Boolean = {
     (p, q) match {
       case (null, null) => true
-      case (null, _) => false
-      case (_, null) => false
+      case (null, _)    => false
+      case (_, null)    => false
       case _ => {
         if (p.value != q.value) false
         else isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
@@ -56,17 +66,34 @@ object Solution {
   def generateTrees(n: Int): List[TreeNode] = {
     def _genTrees(xs: List[Int]): List[TreeNode] = {
       xs match {
-        case List() => List(null)
+        case List()  => List(null)
         case List(x) => List(new TreeNode(x))
         case _ =>
           for {
             i <- xs.indices.toList
             left <- _genTrees(xs.take(i))
-            right <- _genTrees(xs.drop(i+1))
+            right <- _genTrees(xs.drop(i + 1))
           } yield new TreeNode(xs(i), left, right)
       }
     }
 
     _genTrees((1 to n).toList)
+  }
+
+  def _inorderMap(root: TreeNode, acc: Map[Int, Int]): Map[Int, Int] = {
+    root match {
+      case null => acc
+      case _ =>
+        val curr = Seq((root.value, 1))
+        val left = _inorderMap(root.left, acc).toSeq
+        val right = _inorderMap(root.right, acc).toSeq
+        val merged = curr ++ left ++ right
+        merged.groupBy(_._1).mapValues(_.map(_._2)).mapValues(_.sum).toMap
+    }
+  }
+
+  def findMode(root: TreeNode): Array[Int] = {
+    val occur = _inorderMap(root, Map[Int, Int]())
+    occur.groupBy(_._2).mapValues(_.keys).max._2.toArray
   }
 }
