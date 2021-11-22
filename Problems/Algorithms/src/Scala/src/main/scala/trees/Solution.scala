@@ -88,7 +88,6 @@ object Solution {
         val left = _inorderMap(root.left, acc).toSeq
         val right = _inorderMap(root.right, acc).toSeq
         val merged = curr ++ left ++ right
-        //merged.groupBy(_._1).mapValues(_.map(_._2)).mapValues(_.sum).toMap
         merged.groupBy(_._1).mapValues(_.map(_._2).sum).toMap
     }
   }
