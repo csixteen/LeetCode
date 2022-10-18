@@ -37,4 +37,9 @@ mod tests {
     fn example5() {
         assert!(!Solution::has_alternating_bits(3));
     }
+
+    #[test]
+    fn example6() {
+        assert!(Solution::has_alternating_bits(0x5555_5555));
+    }
 }
