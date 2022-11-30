@@ -38,7 +38,7 @@ impl Solution {
         true
     }
 
-    pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
+    pub fn is_valid_sudoku2(board: Vec<Vec<char>>) -> bool {
         let rows = (0..9).fold(true, |acc, row| acc && Solution::valid_row(&board[row]));
         let cols = (0..9).fold(true, |acc, col| acc && Solution::valid_col(col, &board));
         let sqrs = (0..9).fold(true, |acc, i| {
@@ -46,6 +46,25 @@ impl Solution {
             acc && Solution::valid_square(x*3, y*3, &board)
         });
         rows && cols && sqrs
+    }
+
+    pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
+        let mut seen_rows: Vec<HashSet<char>> = vec![HashSet::new(); 9];
+        let mut seen_cols: Vec<HashSet<char>> = vec![HashSet::new(); 9];
+        let mut seen_diag: Vec<HashSet<char>> = vec![HashSet::new(); 9];
+
+        for row in 0..9 {
+            for col in 0..9 {
+                let c = board[row][col];
+                if c != '.' && (
+                    !seen_rows[row].insert(c) ||
+                    !seen_cols[col].insert(c) ||
+                    !seen_diag[(row / 3) * 3 + col / 3].insert(c)) {
+                    return false
+                }
+            }
+        }
+        true
     }
 }
 
