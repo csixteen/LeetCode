@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // https://leetcode.com/problems/permutations-ii/
 
 struct Solution;
