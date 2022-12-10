@@ -1,13 +1,14 @@
+#![allow(dead_code)]
 // https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/
 
 struct Solution;
 
 impl Solution {
     pub fn tictactoe(moves: Vec<Vec<i32>>) -> String {
-        fn winner(grid: &Vec<Vec<String>>) -> Option<&String> {
-            for row in 0..3 {
-                if !grid[row][0].is_empty() && grid[row][0] == grid[row][1] && grid[row][0] == grid[row][2] {
-                    return Some(&grid[row][0]);
+        fn winner(grid: &[Vec<String>]) -> Option<&String> {
+            for row in grid.iter().take(3) {
+                if !row[0].is_empty() && row[0] == row[1] && row[0] == row[2] {
+                    return Some(&row[0]);
                 }
             }
 
