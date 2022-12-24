@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/meeting-rooms/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
@@ -8,7 +10,7 @@ impl Solution {
 
         let mut int = intervals.clone();
         
-        &int.sort_by(|a, b| a[0].cmp(&b[0]));
+        let _ = &int.sort_by(|a, b| a[0].cmp(&b[0]));
 
         for i in 0..int.len()-1 {
             if int[i+1][0] < int[i][1] {
