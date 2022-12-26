@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/possible-bipartition/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution {}
@@ -12,7 +14,7 @@ impl Solution {
         graph: &HashMap<i32, Vec<i32>>
     ) -> bool {
         if let Some(&x) = color_map.get(&node) {
-            return x == color
+            x == color
         } else {
             color_map.insert(node, color);
             graph
