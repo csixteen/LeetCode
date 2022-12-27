@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/insert-interval/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
