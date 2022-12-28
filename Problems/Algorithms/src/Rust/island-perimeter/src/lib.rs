@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/island-perimeter/
 
+#![allow(dead_code)]
+
 use std::collections::HashSet;
 
 struct Solution;
