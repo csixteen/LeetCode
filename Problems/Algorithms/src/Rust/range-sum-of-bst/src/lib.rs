@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/range-sum-of-bst/
 
+#![allow(dead_code)]
+
 use std::cell::RefCell;
 use std::rc::Rc;
 
