@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/decode-ways/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
