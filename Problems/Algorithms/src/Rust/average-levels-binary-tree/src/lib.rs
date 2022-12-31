@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/average-of-levels-in-binary-tree/
 
+#![allow(dead_code)]
+
 use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;
@@ -58,8 +60,6 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     #[test]
     fn it_works() {
         assert_eq!(2 + 2, 4);
