@@ -19,7 +19,7 @@ impl Solution {
                 acc.push((*k, *v));
                 acc
             });
-        freqs.sort_by(|a, b| (*a).1.cmp(&b.1).reverse());
+        freqs.sort_by(|a, b| a.1.cmp(&b.1).reverse());
         freqs.iter().map(|x| x.0).take(k as usize).collect()
     }
 }
