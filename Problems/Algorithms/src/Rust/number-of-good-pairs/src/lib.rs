@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/number-of-good-pairs/
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 struct Solution;
