@@ -8,16 +8,16 @@ impl Solution {
     pub fn rotate_linear_space(nums: &mut Vec<i32>, k: i32) {
         let len = nums.len();
         let k = k as usize % len;
-        if len < 2 || k == 0 { return () }
+        if len < 2 || k == 0 { return }
 
         let mut tmp: Vec<i32> = Vec::with_capacity(len);
 
-        for i in len-k..len {
-            tmp.push(nums[i]);
+        for item in nums.iter().take(len).skip(len-k) {
+            tmp.push(*item);
         }
 
-        for i in 0..len-k {
-            tmp.push(nums[i]);
+        for item in nums.iter().take(len-k) {
+            tmp.push(*item);
         }
 
         let _ = mem::replace(nums, tmp);
