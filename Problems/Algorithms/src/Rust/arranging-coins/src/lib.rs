@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/arranging-coins/
 
+#![allow(dead_code)]
+
 struct Solution;
 
 impl Solution {
