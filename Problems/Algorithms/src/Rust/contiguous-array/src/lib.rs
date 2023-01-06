@@ -1,8 +1,10 @@
 // https://leetcode.com/problems/contiguous-array/
 
-use std::collections::HashMap;
+#![allow(dead_code)]
 
-struct Solution {}
+use std::collections::{hash_map, HashMap};
+
+struct Solution;
 
 impl Solution {
     pub fn find_max_length(nums: Vec<i32>) -> i32 {
@@ -15,10 +17,10 @@ impl Solution {
 
             if count == 0 { 
                 m = m.max(i + 1);
-            } else if hash.contains_key(&count) {
-                m = m.max(i - *hash.get(&count).unwrap() as usize);
+            } else if let hash_map::Entry::Vacant(e) = hash.entry(count) {
+                e.insert(i as i32);
             } else {
-                hash.insert(count, i as i32);
+                m = m.max(i - *hash.get(&count).unwrap() as usize);
             }
         }
 
