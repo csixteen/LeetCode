@@ -26,18 +26,18 @@ impl TreeNode {
 struct Solution;
 
 impl Solution {
-    fn inorder(node: &Option<Rc<RefCell<TreeNode>>>, k: i32, acc: &mut Vec<i32>) {
+    fn inorder(node: &Option<Rc<RefCell<TreeNode>>>, acc: &mut Vec<i32>) {
         if let Some(x) = node {
-            Self::inorder(&x.borrow().left, k, acc);
+            Self::inorder(&x.borrow().left, acc);
             acc.push(x.borrow().val);
-            Self::inorder(&x.borrow().right, k, acc);
+            Self::inorder(&x.borrow().right, acc);
         }
     }
 
     pub fn kth_smallest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
         let mut acc = Vec::new();
 
-        Self::inorder(&root, k, &mut acc);
+        Self::inorder(&root, &mut acc);
 
         acc[(k - 1) as usize]
     }
