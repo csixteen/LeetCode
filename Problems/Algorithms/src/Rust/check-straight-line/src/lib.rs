@@ -6,7 +6,7 @@ struct Solution {}
 
 impl Solution {
     pub fn check_straight_line(coordinates: Vec<Vec<i32>>) -> bool {
-        fn slope(a: &Vec<i32>, b: &Vec<i32>) -> f32 {
+        fn slope(a: &[i32], b: &[i32]) -> f32 {
             (b[1] as f32 - a[1] as f32) / (b[0] as f32 - a[0] as f32)
         }
 
