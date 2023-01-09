@@ -31,7 +31,7 @@ impl FirstUnique {
         FirstUnique {
             queue: nums,
             count: map,
-            first_index: first_index,
+            first_index,
         }
     }
 
