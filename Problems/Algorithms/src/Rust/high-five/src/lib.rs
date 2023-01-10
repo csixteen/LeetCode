@@ -12,8 +12,8 @@ impl Solution {
         let mut grades: Vec<Vec<i32>> =
             items
                 .iter()
-                .fold(HashMap::new(), |mut acc, i| {
-                    acc.entry(i[0]).or_insert(Vec::new()).push(i[1]);
+                .fold(HashMap::<i32, Vec<i32>>::new(), |mut acc, i| {
+                    acc.entry(i[0]).or_default().push(i[1]);
                     acc
                 })
                 .iter()
@@ -32,8 +32,8 @@ impl Solution {
     pub fn high_five2(items: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         items
             .iter()
-            .fold(BTreeMap::new(), |mut acc, i| {
-                acc.entry(i[0]).or_insert(BinaryHeap::new()).push(i[1]);
+            .fold(BTreeMap::<i32, BinaryHeap<i32>>::new(), |mut acc, i| {
+                acc.entry(i[0]).or_default().push(i[1]);
                 acc
             })
             .into_iter()
