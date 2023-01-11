@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/is-subsequence/
 
-use std::str::Bytes;
+#![allow(dead_code)]
 
-struct Solution {}
+struct Solution; 
 
 impl Solution {
     pub fn is_subsequence(s: String, t: String) -> bool {
