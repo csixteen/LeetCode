@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 
+#![allow(dead_code)]
+
 use std::cmp::Ordering::*;
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -39,9 +41,9 @@ impl Solution {
 
             match (p_val.cmp(&v), q_val.cmp(&v)) {
                 (Greater, Greater) =>
-                    Self::lowest_common_ancestor(node.borrow().right.as_ref().map(|c| c.clone()), p, q),
+                    Self::lowest_common_ancestor(node.borrow().right.as_ref().cloned(), p, q),
                 (Less, Less) =>
-                    Self::lowest_common_ancestor(node.borrow().left.as_ref().map(|c| c.clone()), p, q),
+                    Self::lowest_common_ancestor(node.borrow().left.as_ref().cloned(), p, q),
                 _ => Some(node),
             }
 
