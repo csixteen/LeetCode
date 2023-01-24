@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/random-pick-with-weight/
 
+#![allow(dead_code)]
+
 use std::collections::BTreeMap;
 
 extern "C" {
