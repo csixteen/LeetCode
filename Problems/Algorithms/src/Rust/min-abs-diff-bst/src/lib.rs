@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/minimum-absolute-difference-in-bst/
 
+#![allow(dead_code)]
+
 use std::rc::Rc;
 use std::cell::RefCell;
 
