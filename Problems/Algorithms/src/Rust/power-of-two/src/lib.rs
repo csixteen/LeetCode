@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/power-of-two/
 
-struct Solution {}
+#![allow(dead_code)]
+
+struct Solution;
 
 impl Solution {
     pub fn is_power_of_two(n: i32) -> bool {
