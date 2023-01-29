@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/set-mismatch/
 
+#![allow(dead_code)]
+
 use std::collections::HashSet;
 
 struct Solution;
