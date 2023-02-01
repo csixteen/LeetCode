@@ -18,7 +18,7 @@ impl Solution {
             }
 
             let n = (chars[i-2] - b'0') * 10 + (chars[i-1] - b'0');
-            if n >= 10 && n <= 26 {
+            if (10..=26).contains(&n) {
                 dp[i] += dp[i-2];
             }
         }
