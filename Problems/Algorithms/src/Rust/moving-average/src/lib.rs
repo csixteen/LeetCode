@@ -2,22 +2,22 @@
 
 use std::collections::VecDeque;
 
-struct MovingAverage {
+#[derive(Debug, Default)]
+pub struct MovingAverage {
     size: usize,
     sum: f64,
     window: VecDeque<i32>,
 }
 
 impl MovingAverage {
-    fn new(size: i32) -> Self {
-        MovingAverage{
+    pub fn new(size: i32) -> Self {
+        MovingAverage {
             size: size as usize,
-            sum: 0_f64,
-            window: VecDeque::new(),
+            ..Default::default()
         }
     }
 
-    fn next(&mut self, val: i32) -> f64 {
+    pub fn next(&mut self, val: i32) -> f64 {
         self.sum += val as f64;
         self.window.push_front(val);
         if self.window.len() > self.size {
@@ -37,8 +37,8 @@ mod tests {
         let mut obj = MovingAverage::new(3);
 
         assert_eq!(1.0, obj.next(1));
-        assert_eq!((1.0+10.0)/2_f64, obj.next(10));
-        assert_eq!((1.0+10.0+3.0)/3_f64, obj.next(3));
-        assert_eq!((10.0+3.0+5.0)/3_f64, obj.next(5));
+        assert_eq!((1.0 + 10.0) / 2_f64, obj.next(10));
+        assert_eq!((1.0 + 10.0 + 3.0) / 3_f64, obj.next(3));
+        assert_eq!((10.0 + 3.0 + 5.0) / 3_f64, obj.next(5));
     }
 }
